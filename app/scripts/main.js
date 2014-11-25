@@ -5,8 +5,13 @@
 		app.config( function($routeProvider){
 
 		$routeProvider.when('/', {
-			templateUrl: 'scripts/users.html',
+			templateUrl: 'scripts/users/users.html',
 			controller: 'UserController'
+		});
+
+		$routeProvider.when('/start', {
+			templateUrl: 
+			controller: 
 		});
 
 	}); //end route provider
