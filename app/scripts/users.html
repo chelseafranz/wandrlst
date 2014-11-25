@@ -1,0 +1,10 @@
+<h1>Login/Signup</h1>
+      <div class="usersStuff" ng-controller="UserController">
+    <form id="userForm">
+        <input type="email" ng-model="user.email" placeholder="email"></input>
+        <input type="password" ng-model="user.password" placeholder="password"></input>
+        <button ng-click="register(user)">Register</button>
+        <button ng-click="login(user)">Login</button>
+    </form>
+    <a href="#" ng-click="checkUser()">Check</a>
+    </div>
