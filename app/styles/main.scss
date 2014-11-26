@@ -1,5 +1,5 @@
- // Bourbon & Neat
 @import '../../bower_components/bourbon/dist/bourbon';
+@import '../../bower_components/bitters/app/assets/stylesheets/base';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
 // Custom Styles
@@ -8,10 +8,18 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
+button{
+  background-color: black;
+}
+
+a{
+  text-decoration: none;
+  color: gray;
+}
 
 .hero-unit {
   margin: 50px auto 0 auto;
-  width: 600px;
+  width: 80%;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
@@ -23,4 +31,110 @@ body {
     line-height: 1;
     letter-spacing: -1px;
   }
+}
+#map_canvas {
+  width: 100%;
+  height: 400px;
+}
+
+#map_canvas img { 
+  max-width: none; // to prevent UI control bug
+}
+
+#map_canvas .content {
+  padding: .7em .5em 1em .5em;
+}
+
+#map_canvas .firstHeading {
+  font-family: $serif;
+  font-size: 1.4em;
+  margin-bottom: .4em;
+}
+
+#map_canvas .bodyContent p {
+  font-family: $sans-serif;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+#map_canvas .bodyContent p:last-of-type {
+  border-top: 1px solid silver;
+  margin-top: .5em;
+  padding-top: .3em;
+}
+
+.image-gradient-dynamic {
+  $image-gradient-color-top: gray; 
+  $transparency-top: .9;
+  $image-gradient-color-bottom: white; 
+  $transparency-bottom: .6;
+  $vertical-angle: 0deg;
+
+  $image-gradient-color-left: gray; 
+  $transparency-left: .8;
+  $image-gradient-color-right: white; 
+  $transparency-right: .8;
+  $horizontal-angle: 90deg;
+
+  position: relative;
+  line-height: 0;
+  width: 100%;
+  margin-bottom: $base-line-height;  
+
+  img {
+   width: 100%;
+   height: auto;
+   position: relative;
+   top: 0;
+   left: 0; 
+  }
+
+  .copy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    z-index: 999;
+    text-align: center;
+    @include transform(translate(-50%, -50%));
+
+    p {
+      line-height: 1.5em;
+      padding: 1em 2em;
+      position: relative;
+      color: white;
+      font-weight: 800;
+    }
+  }
+
+  .overlay {
+    @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top), 
+      transparentize($image-gradient-color-bottom, $transparency-bottom));
+    display: block;
+    @include position(absolute, 0px 0px 0px 0px);
+
+    &:after {
+      content: '';
+      @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left), 
+        transparentize($image-gradient-color-right, $transparency-right));
+      display: block;
+      @include position(absolute, 0px 0px 0px 0px);
+    }
+  }
+}
+
+.menu{
+  float: left;
+  width: 10%;
+  background-color: gray;
+  height: 1000px;
+  margin-top: -50px;
+}
+.logout{
+  margin-top: 50px;
+  background-color: black;
+  margin-left: 5px;
+}
+form{
+  width: 300px;
 }

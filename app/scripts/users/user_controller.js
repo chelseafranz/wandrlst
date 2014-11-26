@@ -30,6 +30,7 @@
 			})
 		};
 
+
 		$scope.checkUser = function(){
 			var authData= $scope.authObj.$getAuth();
 			if(authData){
@@ -37,6 +38,7 @@
 			}else{
 				console.log('no one is logged in');
 			}
-		}
+		};
+
 	}])
 }());
