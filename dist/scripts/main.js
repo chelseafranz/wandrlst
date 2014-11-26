@@ -1,8 +1,9 @@
 (function  () {
 
-	var app =angular.module('WanderMod', ['ngRoute', 'firebase']);
+	var app =angular.module('WanderMod', ['ngRoute', 'firebase', 'uiGmapgoogle-maps', ]);
 		app.constant('FIREBASE_URL', 'https://wandrlst.firebaseio.com/');
-		app.config( function($routeProvider){
+		app.config(function($routeProvider){
+			
 
 		$routeProvider.when('/', {
 			templateUrl: 'scripts/users/users.html',
@@ -17,7 +18,8 @@
 
 	}); //end route provider
 
-		
+	
+	
 }());
 	 
 (function() {
@@ -65,9 +67,10 @@
 	}])
 }());
 (function  () {
-	angular.module('WanderMod').controller( 'StartController',['$scope', 'FIREBASE_URL', function($scope, FIREBASE_URL){
+	angular.module('WanderMod').controller( 'StartController',['$scope', 'FIREBASE_URL', function($scope, FIREBASE_URL ){
 
 	// $scope.list= function
+	
 	
 	}]);
 

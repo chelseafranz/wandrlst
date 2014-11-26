@@ -122,6 +122,10 @@ a{
     }
   }
 }
+.angular-google-map-container{
+  height: 400px;
+  width:100% ;
+}
 
 .menu{
   float: left;
@@ -138,3 +142,4 @@ a{
 form{
   width: 300px;
 }
+#map { height: 180px; }
