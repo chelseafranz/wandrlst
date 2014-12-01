@@ -9,9 +9,7 @@
 
 		uiGmapGoogleMapApi.then(function(maps){});
 
-	
-
-		 var itemsRef= new Firebase(FIREBASE_URL + 'items');
+		 var itemsRef= new Firebase(FIREBASE_URL + 'cities');
 		 $scope.cities= $firebase(itemsRef).$asArray();
 		 $scope.title='Cities';
 
@@ -26,7 +24,14 @@
 		};
 
 		$scope.viewList= function(city){
+			// $scope.cities.$asObject(city);
 			$location.path('/single/'+ city.$id);
+			console.log(city.name);
+
+		};
+
+		$scope.viewOneCity= function(city){
+
 		};
 
 

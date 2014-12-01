@@ -21,8 +21,9 @@
 		});
 		 $routeProvider.when('/single/:cid', {
       		templateUrl: 'scripts/lists/lists-main.html',
-      		controller: 'ListController'
+      		controller: 'StartController'
     	});
+		 
 		 $routeProvider.when('/search',{
 		 	templateUrl:'scripts/lists/search.html', 
 		 	controller: 'SearchController'
