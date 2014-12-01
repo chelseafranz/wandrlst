@@ -1,9 +1,14 @@
 (function  () {
 
-	var app =angular.module('WanderMod', ['ngRoute', 'firebase', 'uiGmapgoogle-maps', ]);
+	var app =angular.module('WanderMod', ['ngRoute', 'firebase', 'uiGmapgoogle-maps' ]);
 		app.constant('FIREBASE_URL', 'https://wandrlst.firebaseio.com/');
-		app.config(function($routeProvider){
+		app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
 			
+			uiGmapGoogleMapApiProvider.configure({
+			key: 'AIzaSyCOmbJ5PgUoEptdUXcOZy-d0ESKU5McAIs',
+			v: '3.17',
+			libraries: 'weather, geometry, visualization'
+		});
 
 		$routeProvider.when('/', {
 			templateUrl: 'scripts/users/users.html',
@@ -17,8 +22,15 @@
 
 
 	}); //end route provider
-
 	
+	geocoder= new google.maps.Geocoder();
+	function getCoordinates(address, callback){
+		var coordinants;
+		geocoder.geocode({ address: address},function(results, status){
+			coordinants= results[0].geometry.location;
+			callback(coordinants);
+			})	
+		}
 	
 }());
 	 
@@ -67,11 +79,20 @@
 	}])
 }());
 (function  () {
-	angular.module('WanderMod').controller( 'StartController',['$scope', 'FIREBASE_URL', function($scope, FIREBASE_URL ){
+	angular.module('WanderMod')
+	.controller( 'StartController',['$scope', 'FIREBASE_URL', 'uiGmapGoogleMapApi',function($scope, FIREBASE_URL, uiGmapGoogleMapApi ){
 
 	// $scope.list= function
+		$scope.map = { 
+			// center: { latitude: 45, longitude: -73 }, zoom: 8 
+			zoom: 12,
+			center= new google.maps.LatLng(coords[0], coords[1]),
+			mapTypeId: google.maps.MapTypeID.ROADMAP
+		};
+
+		uiGmapGoogleMapApi.then(function(maps){});
 	
-	
+
 	}]);
 
 }());
