@@ -2,4 +2,31 @@
 
    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
 
- 
+
+    <div class="container">
+    {{title}}
+
+    <ul>
+        <li ng-repeat="city in cities" >
+            <span id="{{city.$id}}" ng-click="viewList(city)">
+                {{city.name}},{{city.country}}</span>
+            <button ng-click="deleteItem(city)">x</button>
+        </li>
+    </ul>
+    <hr/>
+
+    <h2>Add to the List</h2>
+
+    <form id='addForm' ng-submit='addItem(city)'>
+<input type="text" ng-model="city.name" placeholder="name"></input>
+<input type="text" ng-model="city.country" placeholder="country"></input>
+<button>Add Item</button>
+    </form>
+</div>
+
+
+<!-- <h1>Search For a City</h1>
+<form ng-submit="SearchMap()">
+<input type="text"  placeholder='search'></input>
+<button>Submit</button>
+</form> -->

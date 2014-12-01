@@ -12,7 +12,7 @@
 			.then( function(){
 				$scope.login(newUser)
 			}).catch( function(error){
-				console.log('this is an error', error);
+				console.log('error', error);
 			});
 		};
 

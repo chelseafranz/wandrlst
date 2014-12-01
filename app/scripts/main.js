@@ -19,18 +19,26 @@
 			templateUrl: 'scripts/start/start.html',
 			controller: 'StartController'
 		});
+		 $routeProvider.when('/single/:cid', {
+      		templateUrl: 'scripts/lists/lists-main.html',
+      		controller: 'ListController'
+    	});
+		 $routeProvider.when('/search',{
+		 	templateUrl:'scripts/lists/search.html', 
+		 	controller: 'SearchController'
+		 })
 
 
 	}); //end route provider
 	
-	// geocoder= new google.maps.Geocoder();
-	// function getCoordinates(address, callback){
-	// 	var coordinants;
-	// 	geocoder.geocode({ address: address},function(results, status){
-	// 		coordinants= results[0].geometry.location;
-	// 		callback(coordinants);
-	// 		})	
-	// 	}
+	geocoder= new google.maps.Geocoder();
+	function getCoordinates(address, callback){
+		var coordinants;
+		geocoder.geocode({ address: address},function(results, status){
+			coordinants= results[0].geometry.location;
+			callback(coordinants);
+			})	
+		}
 	
 }());
 	 
