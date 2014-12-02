@@ -1,6 +1,6 @@
 (function  () {
 
-	var app =angular.module('WanderMod', ['ngRoute', 'uiGmapgoogle-maps' ]);
+	var app =angular.module('WanderMod', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps' ]);
 		app.constant('PARSE_HEADERS', {
 			headers: {
         'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u',

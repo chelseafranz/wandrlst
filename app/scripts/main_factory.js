@@ -23,19 +23,14 @@
         return $http.get(url+ id, PARSE_HEADERS);
         };
 
-        var register = function (user) {
-          $http.post(PARSE_URI+ 'users',user, PARSE_HEADERS).success( function (data){
-            console.log('Welcome ' + user.username);
-          });
-        };	
-
+      
 
         return{
         	getCities: getCities,
         	addCity : addCity,
         	deleteCity : deleteCity,
         	getOneCity : getOneCity,
-        	register : register
+        	
         };
 }]);
 
