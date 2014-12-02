@@ -1,17 +1,17 @@
 
 <div>City Page</div>
-<h1>{{city.objectId}}</h1>
+<h1>{{city.name}}</h1>
 
 
-<form id="listOne">
+<form id="listOne" ng-submit="addList(list)">
 <h2>Best Bars</h2>
-<input type="text" placeholder="add a bar" ng-model="list.name"></input>
-<input type="hidden" value="city.objectId" ng-model="list.cityId"></input>
+	<input type="text" placeholder="add a bar" ng-model="list.name"></input>
+	<input id="lID" ng-model="list.city" style= "display: none"></input>
 <button>Add</button>
-</form ng-submit="addList(list)">
+</form>
 
 <div class="lists">
-<li ng-repeat="list in lists">
-	{{list.name}}
-</li>
+	<li ng-repeat="list in lists">
+		{{list.name}}
+	</li>
 </div>

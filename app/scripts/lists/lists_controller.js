@@ -4,10 +4,13 @@
 
 		ListsFactory.getLists().success(function(data){
 			$scope.lists= data.results;
-		})
+		});
+
 		$scope.addList= function(list){
+		$('#lID').val(list.objectId).trigger('input');
 			ListsFactory.addList(list);
 		};
+
 
 
 	}]);
