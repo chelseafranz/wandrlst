@@ -12,10 +12,11 @@
 
         $scope.getOneCity= function(cid){
         	$location.path('/city/' + cid);
+        	console.log(cid);
         };
 
 		$scope.map = { 
-			center: { latitude: 55, longitude: -70 },
+			center: { latitude: 45, longitude: -80 },
 			zoom: 3,
 		};
 
@@ -28,6 +29,8 @@
             $scope.cities.splice(index, 1);		
         });
     	};
+
+
     
 
 	}]); //end controller

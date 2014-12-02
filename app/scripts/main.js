@@ -8,6 +8,7 @@
         'Content-Type': 'application/json'
       		}
 		});
+		app.constant('PARSE_URI', 'https://api.parse.com/1/')
 
 		app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
 			
@@ -19,7 +20,7 @@
 
 		$routeProvider.when('/', {
 			templateUrl: 'scripts/users/users.html',
-			controller: 'UserController'
+			 controller: 'UserController'
 		});
 
 		$routeProvider.when('/start', {
