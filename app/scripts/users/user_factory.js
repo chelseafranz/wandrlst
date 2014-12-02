@@ -29,10 +29,16 @@
           }
         };
 
+        var logout = function(user){
+           $cookieStore.remove('currentUser');
+          return checkUser();
+        }
+
         return{
         	register : register,
         	login : login,
-        	checkUser : checkUser
+        	checkUser : checkUser,
+          logout : logout
 
         }
 

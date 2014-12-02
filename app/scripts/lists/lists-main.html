@@ -5,5 +5,13 @@
 
 <form id="listOne">
 <h2>Best Bars</h2>
-<input type="text" placeholder="list title"></input>
-</form>
+<input type="text" placeholder="add a bar" ng-model="list.name"></input>
+<input type="hidden" value="city.objectId" ng-model="list.cityId"></input>
+<button>Add</button>
+</form ng-submit="addList(list)">
+
+<div class="lists">
+<li ng-repeat="list in lists">
+	{{list.name}}
+</li>
+</div>

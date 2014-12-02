@@ -11,6 +11,11 @@
   			$location.path('/start')
   		};
 
+  		$scope.logout = function(user){
+  			UserFactory.logout(user);
+  			$location.path('/');
+  		}
+
 
 
 	}])

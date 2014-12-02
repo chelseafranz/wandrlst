@@ -24,7 +24,6 @@
         };
 
       
-
         return{
         	getCities: getCities,
         	addCity : addCity,

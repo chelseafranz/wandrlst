@@ -29,7 +29,7 @@
 		});
 		 $routeProvider.when('/city/:id', {
       		templateUrl: 'scripts/lists/lists-main.html',
-      		controller: 'StartController'
+      		controller: 'ListController'
     	});
 		 
 		 $routeProvider.when('/search',{
