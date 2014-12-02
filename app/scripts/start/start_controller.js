@@ -1,6 +1,18 @@
 (function  () {
 	angular.module('WanderMod')
-	.controller( 'StartController',['$scope', 'FIREBASE_URL', 'uiGmapGoogleMapApi', '$firebase', '$location',function($scope, FIREBASE_URL, uiGmapGoogleMapApi, $firebase, $location ){
+	.controller( 'StartController', ['$scope', 'uiGmapGoogleMapApi', '$location', '$http', 'PARSE_HEADERS', 'MainFactory',function($scope, uiGmapGoogleMapApi, $location, $http, PARSE_HEADERS, MainFactory ){
+		
+		MainFactory.getCities().success( function (data) {
+          $scope.cities = data.results;
+        });
+
+        $scope.addCity = function (city) {
+          MainFactory.addCity(city);
+        };
+
+        $scope.getOneCity= function(cid){
+        	$location.path('/city/' + cid);
+        };
 
 		$scope.map = { 
 			center: { latitude: 55, longitude: -70 },
@@ -9,53 +21,14 @@
 
 		uiGmapGoogleMapApi.then(function(maps){});
 
-		 var itemsRef= new Firebase(FIREBASE_URL + 'cities');
-		 $scope.cities= $firebase(itemsRef).$asArray();
-		 $scope.title='Cities';
+		var url= 'https://api.parse.com/1/classes/Cities';
 
-		$scope.addItem= function(city){
-			$scope.cities.$add(city); //rather than using push, must use firebase's method
-			$('#addForm')[0].reset();
-			console.log(city.name, city.country)
-		};
+		$scope.deleteCity=function(cID, index){
+		MainFactory.deleteCity(cID).success( function () {
+            $scope.cities.splice(index, 1);		
+        });
+    	};
+    
 
-		$scope.deleteItem=function(city){
-			$scope.cities.$remove(city);
-		};
-
-		$scope.viewList= function(city){
-			// $scope.cities.$asObject(city);
-			$location.path('/single/'+ city.$id);
-			console.log(city.name);
-
-		};
-
-		$scope.viewOneCity= function(city){
-
-		};
-
-
-
-// 		var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-// var mapOptions = {
-//   zoom: 4,
-//   center: myLatlng
-// }
-// var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-// // To add the marker to the map, use the 'map' property
-// var marker = new google.maps.Marker({
-//     position: myLatlng,
-//     map: map,
-//     title:"Hello World!"
-// });
-		
-		
-
-
-
-
-	
-	}]);
-
+	}]); //end controller
 }());
