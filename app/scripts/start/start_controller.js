@@ -18,8 +18,7 @@
 
         $scope.getOneCity= function(cid){
         	$location.path('/city/' + cid);
-        	
-        	
+        
         	console.log(cid);
         };
 

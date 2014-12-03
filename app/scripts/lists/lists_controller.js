@@ -10,8 +10,8 @@
 
 		$scope.addList= function(newList, c){
 			console.log(c);
+			$('#lID').val(c).trigger('input');
 			MainFactory.addList(newList);
-		$('#lID').val(newList.objectId).trigger('input');
 		
 			};
 

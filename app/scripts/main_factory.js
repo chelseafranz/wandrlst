@@ -6,7 +6,6 @@
 		var listUrl= 'https://api.parse.com/1/classes/Lists/';
 
 	
-  console.log($routeParams);
 
         var getCities = function () {
           return $http.get(url, PARSE_HEADERS);
@@ -26,7 +25,6 @@
         };
 
         var getOneCity= function(cID){
-        	console.log(cID);
         return $http.get(url+ cID, PARSE_HEADERS);
 
         };
@@ -36,7 +34,7 @@
         var addList = function(list){
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
-			// $('#lID').val(list.objectId).trigger('input');
+			$('#lID').val(list.objectId).trigger('input');
 			$('#listOne')[0].reset();
 		});
 		};

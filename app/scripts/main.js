@@ -27,6 +27,7 @@
 			templateUrl: 'scripts/start/start.html',
 			controller: 'StartController'
 		});
+		
 		 $routeProvider.when('/city/:id', {
       		templateUrl: 'scripts/lists/lists-main.html',
       		controller: 'ListController'
