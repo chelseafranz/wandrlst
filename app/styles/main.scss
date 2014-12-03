@@ -2,12 +2,21 @@
 @import '../../bower_components/bitters/app/assets/stylesheets/base';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
-// Custom Styles
+$font1:'Yanone Kaffeesatz';
+$font2:'Quicksand';
 body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+
+  font-family: $font1;
+  
 }
+
+h1{
+  font-family: $font2;
+}
+h2{
+  font-family: $font1;
+}
+
 button{
   background-color: black;
 }
@@ -143,3 +152,9 @@ form{
   width: 300px;
 }
 #map { height: 180px; }
+li{
+  display: inline-block;
+  border: solid 1px black;
+  margin: 2px 5px;
+  padding: 2px 5px;
+}

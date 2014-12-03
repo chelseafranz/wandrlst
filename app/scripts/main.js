@@ -1,6 +1,6 @@
 (function  () {
 
-	var app =angular.module('WanderMod', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps' ]);
+	var app =angular.module('WanderMod', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps',  'ui.utils' ]);
 		app.constant('PARSE_HEADERS', {
 			headers: {
         'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u',
@@ -8,7 +8,7 @@
         'Content-Type': 'application/json'
       		}
 		});
-		app.constant('PARSE_URI', 'https://api.parse.com/1/')
+		app.constant('PARSE_URI', 'https://api.parse.com/1/');
 
 		app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
 			
@@ -29,7 +29,7 @@
 		});
 		 $routeProvider.when('/city/:id', {
       		templateUrl: 'scripts/lists/lists-main.html',
-      		controller: 'ListController'
+      		controller: 'StartController'
     	});
 		 
 		 $routeProvider.when('/search',{
@@ -40,6 +40,13 @@
 
 
 	}); //end route provider
+
+		// $( "#date" ).datepicker();
+
+
+
+ 
+
 	
 }());
 	 
