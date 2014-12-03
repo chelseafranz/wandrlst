@@ -7,7 +7,6 @@
         });
 
         var city;
-       console.log($routeParams);
 
         $scope.addCity = function (city) {
           MainFactory.addCity(city);
