@@ -23,10 +23,10 @@
         	console.log(cid);
         };
 
-        MainFactory.getOneCity($routeParams.id).success(function(data){
-        		console.log(data);
-        		$scope.city=data;
-        	});
+        // MainFactory.getOneCity($routeParams.id).success(function(data){
+        // 		console.log(data);
+        // 		$scope.city=data;
+        // 	});
         
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {
@@ -38,13 +38,13 @@
 			$scope.lists= data.results;
 		});
 
-		$scope.addList= function(newList, t){
-			console.log(t);
+		// $scope.addList= function(newList, t){
+		// 	console.log(t);
 
-			// ListsFactory.addList(newList);
-		//$('#lID').val(newList.objectId).trigger('input');
+		// 	// ListsFactory.addList(newList);
+		// //$('#lID').val(newList.objectId).trigger('input');
 		
-			};
+		// 	};
 
 			$scope.map = { 
 			center: { latitude: 45, longitude: -80 },

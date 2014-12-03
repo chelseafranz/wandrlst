@@ -1,10 +1,10 @@
 (function  () {
 
-	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','ListsFactory', function($scope, PARSE_HEADERS, PARSE_URI, $location, ListsFactory){
+	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams){
 		var list;
 	
 
-		ListsFactory.getLists().success(function(data){
+		MainFactory.getLists().success(function(data){
 			$scope.lists= data.results;
 			console.log($scope.lists);
 			list= $scope.lists;
@@ -17,6 +17,11 @@
 		//$('#lID').val(newList.objectId).trigger('input');
 		
 			};
+
+		MainFactory.getOneCity($routeParams.id).success(function(data){
+        		console.log(data);
+        		$scope.city=data;
+        	});
 
 
 
