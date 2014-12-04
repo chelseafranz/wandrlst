@@ -8,14 +8,19 @@
 		$scope.dateShow= false;
 		$scope.brunchShow= false;
 
-		MainFactory.tipsByCity().success(function(data){
-			$scope.tips= data.results;	
-		});
+		
 
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
 	        $scope.city=data;
+	      
+	        MainFactory.tipsByCity(data.name).success(function(data){
+	        	$scope.tips=data.results;
+
 	        });
+
+	        });
+		
 
 		MainFactory.getLists().success(function(data){
 			$scope.lists= data.results;
@@ -24,6 +29,7 @@
 		// MainFactory.getTips().success(function(data){
 		// 	$scope.tips= data.results;
 		// });
+
 		MainFactory.getDates().success(function(data){
 			$scope.dates= data.results;
 		});

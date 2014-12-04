@@ -25,21 +25,13 @@
         	console.log(cid);
         };
 
-        
-        
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {
             $scope.cities.splice(index, 1);		
         });
     	};
 
-		// $scope.addList= function(newList, t){
-		// 	console.log(t);
 
-		// 	// ListsFactory.addList(newList);
-		// //$('#lID').val(newList.objectId).trigger('input');
-		
-		// 	};
 
 			$scope.map = { 
 			center: { latitude: 45, longitude: -80 },

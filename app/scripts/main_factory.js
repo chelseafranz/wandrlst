@@ -29,8 +29,10 @@
         };
 
          var tipsByCity = function (city) {
-            var query = '?'+'where={"tips":"'+city+'"}';
-            return $http.get(tipsUrl + query, PARSE_HEADERS);
+            console.log(city);
+            var query = '?'+'where={"city":"'+city+'"}';
+            console.log(query);
+           return $http.get(tipsUrl + query, PARSE_HEADERS);
           };
 
         
@@ -94,7 +96,7 @@
         	addList : addList,
         	getLists : getLists,
             addTip : addTip,
-            // getTips : getTips,
+            //getTips : getTips,
             addDate : addDate,
             getDates : getDates,
             addBrunch : addBrunch,

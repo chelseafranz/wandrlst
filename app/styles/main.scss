@@ -4,6 +4,8 @@
 
 $font1:'Yanone Kaffeesatz';
 $font2:'Quicksand';
+$color1: HSLA(252, 9%, 22%, 1); /*shark*/
+$color2: HSLA(178, 13%, 40%, 1); /*dark green*/
 body {
 
   font-family: $font1;
@@ -18,7 +20,7 @@ h2{
 }
 
 button{
-  background-color: black;
+  background-color: $color1;
 }
 
 a{
@@ -32,7 +34,7 @@ a{
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+  
   border-radius: 6px;
   padding: 60px;
   h1 {
@@ -67,7 +69,7 @@ a{
 }
 
 #map_canvas .bodyContent p:last-of-type {
-  border-top: 1px solid silver;
+  border-top: 1px solid $color1;
   margin-top: .5em;
   padding-top: .3em;
 }
@@ -145,7 +147,7 @@ a{
 }
 .logout{
   margin-top: 50px;
-  background-color: black;
+  background-color: $color2;
   margin-left: 5px;
 }
 form{
