@@ -17,14 +17,10 @@
 
         $scope.getOneCity= function(cid){
         	$location.path('/city/' + cid);
-        
         	console.log(cid);
         };
 
-        // MainFactory.getOneCity($routeParams.id).success(function(data){
-        // 		console.log(data);
-        // 		$scope.city=data;
-        // 	});
+        
         
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {

@@ -1,5 +1,5 @@
 (function  () {
-	angular.module('WanderMod').factory( 'UserFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$location','$cookieStore', function ($http, PARSE_HEADERS, PARSE_URI, $location, $cookieStore){
+	angular.module('WanderMod').factory( 'UserFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$location','$cookieStore','$routeParams', function ($http, PARSE_HEADERS, PARSE_URI, $location, $cookieStore,$routeParams){
 
 		  var register = function (user) {
           $http.post(PARSE_URI+ 'users',user, PARSE_HEADERS).success( function (data){
@@ -33,12 +33,22 @@
            $cookieStore.remove('currentUser');
           return checkUser();
         }
+         var currentUser = function () {
+          return $cookieStore.get('currentUser');
+        };
+
+        var getUserProfile= function(){
+          return $cookieStore.get('currentUser');
+          $logout.path('/user-profile');
+        }
 
         return{
         	register : register,
         	login : login,
         	checkUser : checkUser,
-          logout : logout
+          logout : logout,
+          currentUser : currentUser,
+          getUserProfile : getUserProfile
 
         }
 

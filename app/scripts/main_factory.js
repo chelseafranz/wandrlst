@@ -4,6 +4,7 @@
 		var url= 'https://api.parse.com/1/classes/Cities/';
 		var userUrl = ' https://api.parse.com/1/users/';
 		var listUrl= 'https://api.parse.com/1/classes/Lists/';
+        var tipsUrl= 'https://api.parse.com/1/classes/tips/';
 
 	
 
@@ -33,8 +34,7 @@
         var addList = function(list){
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
-			$('#lID').val(list.objectId).trigger('input');
-			$('#listOne')[0].reset();
+			//$('#bars')[0].reset();
 		});
 		};
 
@@ -44,6 +44,21 @@
 		};
 
 
+        var getTips= function(){
+            return $http.get(tipsUrl, PARSE_HEADERS);
+        };
+
+        var addTip = function(tip){
+        $http.post(tipsUrl, tip, PARSE_HEADERS).success(function(){
+            console.log('successfully added a tip');
+            // $('#tips')[0].reset();
+            
+        });
+        };
+
+
+
+
       
         return{
         	getCities: getCities,
@@ -51,7 +66,10 @@
         	deleteCity : deleteCity,
         	getOneCity : getOneCity,
         	addList : addList,
-        	getLists : getLists
+        	getLists : getLists,
+            addTip : addTip,
+            getTips : getTips
+
         	
         };
 }]);

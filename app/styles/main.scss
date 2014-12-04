@@ -155,6 +155,35 @@ form{
 li{
   display: inline-block;
   border: solid 1px black;
-  margin: 2px 5px;
+  margin: 5px;
   padding: 2px 5px;
+}
+.addForms{
+  width: 300px;
+}
+.allResults{
+  width: 300px;
+}
+.lists{
+  border: solid 1px gray;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+  text-align: right;
+}
+
+.tips{
+  border: solid 1px gray;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+  text-align: right;
+}
+
+#inputs{
+  float: left;
+}
+
+#results{
+  float: right;
 }

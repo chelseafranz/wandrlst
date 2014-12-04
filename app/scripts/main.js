@@ -38,6 +38,12 @@
 		 	controller: 'SearchController'
 		 });
 
+		 $routeProvider.when('/user-profile', {
+		 	templateUrl: 'scripts/users/user-profile.html',
+		 	controller: 'UserController'
+		 });
+
+
 
 
 	}); //end route provider

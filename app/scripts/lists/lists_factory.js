@@ -4,7 +4,6 @@
 		
 
 		var addList = function(list){
-
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
 			console.log($scope.newCity);
@@ -12,17 +11,18 @@
 		});
 		};
 
+
+		
 		var getLists= function(){
 			return $http.get(listUrl, PARSE_HEADERS)
 		};
 
 		
 
-
-
 		return{
 			addList : addList,
-			getLists : getLists,
+			getLists : getLists
+
 			
 		}
 		
