@@ -26,8 +26,12 @@
 
         var getOneCity= function(cID){
         return $http.get(url+ cID, PARSE_HEADERS);
-
         };
+
+         var listByCity = function (tips) {
+            var query = '?'+'where={"city":"'+tips+'"}';
+            return $http.get(PARSE_URI + 'classes/StandUp' + query, PARSE_HEADERS);
+          };
 
         
 
@@ -94,7 +98,8 @@
             addDate : addDate,
             getDates : getDates,
             addBrunch : addBrunch,
-            getBrunchs : getBrunchs
+            getBrunchs : getBrunchs,
+            listByCity : listByCity
 
         	
         };

@@ -5,8 +5,13 @@
 
 		$scope.tipsShow= false;
 		$scope.listShow= false;
-		// $scope.dateShow= false;
-		// $scope.brunchShow= false;
+		$scope.dateShow= false;
+		$scope.brunchShow= false;
+		MainFactory.getOneCity($routeParams.id).
+		success(function(data){
+	        $scope.city=data;
+	        });
+
 
 		MainFactory.getLists().success(function(data){
 			$scope.lists= data.results;
@@ -21,6 +26,7 @@
 		MainFactory.getBrunchs().success(function(data){
 			$scope.brunchs= data.results;
 		});
+
 		$scope.addList= function(newList, c){
 			console.log(c);
 			newList.city= c;
@@ -28,11 +34,6 @@
 			 //$('#bars')[0].reset();
 			};
 
-			MainFactory.getOneCity($routeParams.id).
-			success(function(data){
-	        $scope.city=data;
-
-	        	});
 
 		$scope.addTip= function(newTip, c){
 			console.log(c);
@@ -50,7 +51,6 @@
 			newBrunch.city=c;
 			MainFactory.addBrunch(newBrunch);
 		};
-
 
 		$scope.chooseList= function(){
 			var choose= $('select').val();
@@ -70,6 +70,10 @@
 				break;
 				
 			}
+		};
+
+		$scope.listByCity = function(){
+			MainFactory.listByCity();
 		};
 		
 

@@ -11,8 +11,6 @@
 		});
 		};
 
-
-		
 		var getLists= function(){
 			return $http.get(listUrl, PARSE_HEADERS)
 		};
