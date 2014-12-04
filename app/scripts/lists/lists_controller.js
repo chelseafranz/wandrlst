@@ -7,19 +7,23 @@
 		$scope.listShow= false;
 		$scope.dateShow= false;
 		$scope.brunchShow= false;
+
+		MainFactory.tipsByCity().success(function(data){
+			$scope.tips= data.results;	
+		});
+
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
 	        $scope.city=data;
 	        });
 
-
 		MainFactory.getLists().success(function(data){
 			$scope.lists= data.results;
-		});
+		}); //gets list of bars
 
-		MainFactory.getTips().success(function(data){
-			$scope.tips= data.results;
-		});
+		// MainFactory.getTips().success(function(data){
+		// 	$scope.tips= data.results;
+		// });
 		MainFactory.getDates().success(function(data){
 			$scope.dates= data.results;
 		});

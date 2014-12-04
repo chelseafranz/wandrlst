@@ -28,9 +28,9 @@
         return $http.get(url+ cID, PARSE_HEADERS);
         };
 
-         var listByCity = function (tips) {
-            var query = '?'+'where={"city":"'+tips+'"}';
-            return $http.get(PARSE_URI + 'classes/StandUp' + query, PARSE_HEADERS);
+         var tipsByCity = function (city) {
+            var query = '?'+'where={"tips":"'+city+'"}';
+            return $http.get(tipsUrl + query, PARSE_HEADERS);
           };
 
         
@@ -47,9 +47,9 @@
 			return $http.get(listUrl, PARSE_HEADERS);
 		};
 
-        var getTips= function(){
-            return $http.get(tipsUrl, PARSE_HEADERS);
-        };
+        // var getTips= function(){
+        //     return $http.get(tipsUrl, PARSE_HEADERS);
+        // };
 
         var addTip = function(tip){
         $http.post(tipsUrl, tip, PARSE_HEADERS).success(function(){
@@ -94,12 +94,12 @@
         	addList : addList,
         	getLists : getLists,
             addTip : addTip,
-            getTips : getTips,
+            // getTips : getTips,
             addDate : addDate,
             getDates : getDates,
             addBrunch : addBrunch,
             getBrunchs : getBrunchs,
-            listByCity : listByCity
+            tipsByCity : tipsByCity
 
         	
         };
