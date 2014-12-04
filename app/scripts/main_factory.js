@@ -29,13 +29,23 @@
         };
 
          var tipsByCity = function (city) {
-            console.log(city);
             var query = '?'+'where={"city":"'+city+'"}';
-            console.log(query);
            return $http.get(tipsUrl + query, PARSE_HEADERS);
           };
 
-        
+          var listsByCity = function(city){
+            var query = '?'+'where={"city":"'+city+'"}';
+           return $http.get(listUrl + query, PARSE_HEADERS);
+          };
+
+        var datesByCity = function(city){
+            var query = '?'+'where={"city":"'+city+'"}';
+           return $http.get(dateUrl + query, PARSE_HEADERS);
+          };
+         var brunchsByCity = function(city){
+            var query = '?'+'where={"city":"'+city+'"}';
+           return $http.get(brunchUrl + query, PARSE_HEADERS);
+          };
 
         var addList = function(list){
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
@@ -61,10 +71,7 @@
         });
         };
 
-        var getDates= function(){
-            return $http.get(dateUrl, PARSE_HEADERS);
-        };
-
+        
         var addDate = function(date){
         $http.post(dateUrl, date, PARSE_HEADERS).success(function(){
             console.log('successfully added a date');
@@ -73,10 +80,6 @@
         });
         };
 
-        var getBrunchs= function(){
-            return $http.get(brunchUrl, PARSE_HEADERS);
-        };
-        
         var addBrunch = function(brunch){
         $http.post(brunchUrl, brunch, PARSE_HEADERS).success(function(){
             console.log('successfully added a brunch');
@@ -96,12 +99,14 @@
         	addList : addList,
         	getLists : getLists,
             addTip : addTip,
-            //getTips : getTips,
             addDate : addDate,
-            getDates : getDates,
+            
             addBrunch : addBrunch,
-            getBrunchs : getBrunchs,
-            tipsByCity : tipsByCity
+       
+            tipsByCity : tipsByCity,
+            listsByCity : listsByCity,
+            datesByCity : datesByCity,
+            brunchsByCity : brunchsByCity
 
         	
         };

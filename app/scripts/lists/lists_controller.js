@@ -13,29 +13,21 @@
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
 	        $scope.city=data;
-	      
 	        MainFactory.tipsByCity(data.name).success(function(data){
 	        	$scope.tips=data.results;
-
+	        });
+	        MainFactory.listsByCity(data.name).success(function(data){
+	        	$scope.lists=data.results;
+	        });
+	        MainFactory.datesByCity(data.name).success(function(data){
+	        	$scope.dates=data.results;
+	        });
+	        MainFactory.brunchsByCity(data.name).success(function(data){
+	        	$scope.brunchs=data.results;
 	        });
 
 	        });
-		
-
-		MainFactory.getLists().success(function(data){
-			$scope.lists= data.results;
-		}); //gets list of bars
-
-		// MainFactory.getTips().success(function(data){
-		// 	$scope.tips= data.results;
-		// });
-
-		MainFactory.getDates().success(function(data){
-			$scope.dates= data.results;
-		});
-		MainFactory.getBrunchs().success(function(data){
-			$scope.brunchs= data.results;
-		});
+	
 
 		$scope.addList= function(newList, c){
 			console.log(c);
