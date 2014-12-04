@@ -5,6 +5,11 @@
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
         });
+        MainFactory.getLists().success(function(data){
+			$scope.lists= data.results;
+		});
+		
+
 
         var city;
 
@@ -27,10 +32,6 @@
             $scope.cities.splice(index, 1);		
         });
     	};
-
-    	MainFactory.getLists().success(function(data){
-			$scope.lists= data.results;
-		});
 
 		// $scope.addList= function(newList, t){
 		// 	console.log(t);

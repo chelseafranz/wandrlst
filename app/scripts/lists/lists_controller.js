@@ -15,6 +15,12 @@
 		MainFactory.getTips().success(function(data){
 			$scope.tips= data.results;
 		});
+		MainFactory.getDates().success(function(data){
+			$scope.dates= data.results;
+		});
+		MainFactory.getBrunchs().success(function(data){
+			$scope.brunchs= data.results;
+		});
 		$scope.addList= function(newList, c){
 			console.log(c);
 			newList.city= c;
@@ -35,6 +41,17 @@
 			 
 		};
 
+		$scope.addDate=function(newDate, c){
+			newDate.city=c;
+			MainFactory.addDate(newDate);
+		};
+
+		$scope.addBrunch=function(newBrunch, c){
+			newBrunch.city=c;
+			MainFactory.addBrunch(newBrunch);
+		};
+
+
 		$scope.chooseList= function(){
 			var choose= $('select').val();
 			console.log(choose);
@@ -45,22 +62,17 @@
 				case 'bars':
 				$scope.listShow= true;
 				break;
-				// case 'date':
-				// $scope.dateShow= true;
-				// break;
-				// case 'brunch':
-				// $scope.dateShow= true;
-				// break;
+				case 'date':
+				$scope.dateShow= true;
+				break;
+				case 'brunch':
+				$scope.brunchShow= true;
+				break;
 				
 			}
 		};
 		
 
-
-	
-
-
-
-	}]);
+	}]); //end controller
 }());
 

@@ -5,8 +5,8 @@
 		var userUrl = ' https://api.parse.com/1/users/';
 		var listUrl= 'https://api.parse.com/1/classes/Lists/';
         var tipsUrl= 'https://api.parse.com/1/classes/tips/';
-
-	
+        var dateUrl= 'https://api.parse.com/1/classes/date/';
+	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
 
         var getCities = function () {
           return $http.get(url, PARSE_HEADERS);
@@ -43,7 +43,6 @@
 			return $http.get(listUrl, PARSE_HEADERS);
 		};
 
-
         var getTips= function(){
             return $http.get(tipsUrl, PARSE_HEADERS);
         };
@@ -56,6 +55,29 @@
         });
         };
 
+        var getDates= function(){
+            return $http.get(dateUrl, PARSE_HEADERS);
+        };
+
+        var addDate = function(date){
+        $http.post(dateUrl, date, PARSE_HEADERS).success(function(){
+            console.log('successfully added a date');
+            // $('#tips')[0].reset();
+            
+        });
+        };
+
+        var getBrunchs= function(){
+            return $http.get(brunchUrl, PARSE_HEADERS);
+        };
+        
+        var addBrunch = function(brunch){
+        $http.post(brunchUrl, brunch, PARSE_HEADERS).success(function(){
+            console.log('successfully added a brunch');
+            // $('#tips')[0].reset();
+            
+        });
+        };
 
 
 
@@ -68,7 +90,11 @@
         	addList : addList,
         	getLists : getLists,
             addTip : addTip,
-            getTips : getTips
+            getTips : getTips,
+            addDate : addDate,
+            getDates : getDates,
+            addBrunch : addBrunch,
+            getBrunchs : getBrunchs
 
         	
         };
