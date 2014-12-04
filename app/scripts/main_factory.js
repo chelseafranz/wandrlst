@@ -88,6 +88,10 @@
         });
         };
 
+        var draggable= function(){
+            $( ".list" ).draggable();
+        }
+
 
 
       
@@ -100,13 +104,12 @@
         	getLists : getLists,
             addTip : addTip,
             addDate : addDate,
-            
-            addBrunch : addBrunch,
-       
+            addBrunch : addBrunch,       
             tipsByCity : tipsByCity,
             listsByCity : listsByCity,
             datesByCity : datesByCity,
-            brunchsByCity : brunchsByCity
+            brunchsByCity : brunchsByCity,
+            draggable : draggable
 
         	
         };

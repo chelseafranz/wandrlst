@@ -8,11 +8,16 @@
 		$scope.dateShow= false;
 		$scope.brunchShow= false;
 
-		
+	
+	$( ".lists" ).draggable({ addClasses: true });
+	$( ".tips" ).draggable({ addClasses: true });
+	$( ".date" ).draggable({ addClasses: true });
+	$( ".brunch" ).draggable({ addClasses: true });
 
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
 	        $scope.city=data;
+	        
 	        MainFactory.tipsByCity(data.name).success(function(data){
 	        	$scope.tips=data.results;
 	        });
