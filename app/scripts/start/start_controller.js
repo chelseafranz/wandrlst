@@ -5,6 +5,11 @@
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
         });
+        MainFactory.getLists().success(function(data){
+			$scope.lists= data.results;
+		});
+		
+
 
         var city;
 
@@ -17,24 +22,16 @@
 
         $scope.getOneCity= function(cid){
         	$location.path('/city/' + cid);
-        
         	console.log(cid);
         };
 
-        // MainFactory.getOneCity($routeParams.id).success(function(data){
-        // 		console.log(data);
-        // 		$scope.city=data;
-        // 	});
+        
         
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {
             $scope.cities.splice(index, 1);		
         });
     	};
-
-    	MainFactory.getLists().success(function(data){
-			$scope.lists= data.results;
-		});
 
 		// $scope.addList= function(newList, t){
 		// 	console.log(t);
