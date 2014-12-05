@@ -13,8 +13,7 @@
             .success( function (data) {
             $cookieStore.put('currentUser', data);
             console.log( 'welcome back '+ user.username);
-              return checkUser();
-              
+              return checkUser();    
           });
         };
 

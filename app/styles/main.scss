@@ -7,11 +7,17 @@ $font2:'Quicksand';
 $color1: HSLA(252, 9%, 22%, 1); /*shark*/
 $color2: HSLA(178, 13%, 40%, 1); /*dark green*/
 
+.demo { width: 620px }
 
-.sidebarPro{
+ul { width: 400px; height: 150px; padding: 2em; margin: 10px; color:#ddd; list-style: none; }
+ul li { cursor: pointer; }
+
+#draggable { background: #444; }
+#droppable { background: #222; }
+
+.body{
   border: solid 1px gray;
-  height: 1000px;
-  width: 15%;
+ /* width: 15%;*/
   float: right;
   position: absolute;
   right: 10px;
@@ -187,7 +193,7 @@ li{
   padding: 5px;
   margin: 5px;
   float: right;
-  text-align: right;
+ 
 }
 
 

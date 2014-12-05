@@ -11,10 +11,10 @@
   			
   		};
 
-  		$scope.logout = function(){
-          $cookieStore.remove('currentUser');
-          return checkUser();
-        };
+  		// $scope.logout = function(){
+    //       $cookieStore.remove('currentUser');
+    //       return checkUser();
+    //     };
   		
 
       var checkUser = function (user) {
