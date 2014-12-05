@@ -7,13 +7,27 @@ $font2:'Quicksand';
 $color1: HSLA(252, 9%, 22%, 1); /*shark*/
 $color2: HSLA(178, 13%, 40%, 1); /*dark green*/
 
-.demo { width: 620px }
+/*.demo { width: 620px }*/
 
-ul { width: 400px; height: 150px; padding: 2em; margin: 10px; color:#ddd; list-style: none; }
-ul li { cursor: pointer; }
+.mainList{
+  width: 20%;
+}
+
+ul { 
+  padding: 2em; 
+  color:#ddd; 
+  list-style: none; }
+
+.mywandrlst{
+  width: 50%;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
 
 #draggable { background: #444; }
-#droppable { background: #222; }
+#droppable { background: #444; }
 
 .body{
   border: solid 1px gray;
@@ -176,12 +190,14 @@ form{
   width: 300px;
 }
 #map { height: 180px; }
+
 li{
   display: inline-block;
   border: solid 1px black;
   margin: 5px;
   padding: 2px 5px;
   cursor: crosshair;
+  
 }
 .addForms{
   width: 30%;
@@ -208,11 +224,15 @@ li{
 @media (max-width: 700px){
 
   li{
-    display: inline-block;
-    width: 40%;
+/*    display: inline-block;
+*/    width: 40%;
     margin: 2px;
     padding: 3px;
     text-align: center;
+  }
+
+  .mainList{
+  width: 40%;
   }
   #inputs{
 
