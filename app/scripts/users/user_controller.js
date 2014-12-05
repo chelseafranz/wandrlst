@@ -23,6 +23,7 @@
             $('#user').html('Welcome back ' + user.username);
             $location.path('/start');
           } else {
+            console.log('not logged in')
             $('#user').html('Please Log In');
             $location.path('/');
           }

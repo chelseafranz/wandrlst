@@ -1,6 +1,6 @@
 (function  () {
 	angular.module('WanderMod')
-	.controller( 'StartController', ['$scope', 'uiGmapGoogleMapApi', '$location', '$http', 'PARSE_HEADERS', 'MainFactory','$routeParams',function($scope, uiGmapGoogleMapApi, $location, $http, PARSE_HEADERS, MainFactory, $routeParams ){
+	.controller( 'StartController', ['$scope', 'uiGmapGoogleMapApi', '$location', '$http', 'PARSE_HEADERS', 'MainFactory','$routeParams','$cookieStore', 'UserFactory', function($scope, uiGmapGoogleMapApi, $location, $http, PARSE_HEADERS, MainFactory, $routeParams, $cookieStore, UserFactory ){
 		
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
@@ -9,7 +9,8 @@
 			$scope.lists= data.results;
 		});
 		
-
+		$scope.user = UserFactory.currentUser();
+		console.log($scope.user);
 
         var city;
 
@@ -25,13 +26,21 @@
         	console.log(cid);
         };
 
+        
+        
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {
             $scope.cities.splice(index, 1);		
         });
     	};
 
+		// $scope.addList= function(newList, t){
+		// 	console.log(t);
 
+		// 	// ListsFactory.addList(newList);
+		// //$('#lID').val(newList.objectId).trigger('input');
+		
+		// 	};
 
 			$scope.map = { 
 			center: { latitude: 45, longitude: -80 },

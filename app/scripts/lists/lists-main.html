@@ -1,6 +1,14 @@
+<div class="body"></div>	
+<div class="sidebarPro">
+	<button id="save">Save</button>
+<ul id="cart" class="droptrue ui-sortable">
+	<li>Things I want to Save</li>
+</ul>
+
+</div>
 
 <h1>{{city.name}}</h1>
-<div id="inputs">
+<div id="inputs dropdown">
 <form id="selectList" ng-submit="chooseList()">
 <select name="Choose a List">
   <option>Choose a List</option>
@@ -11,6 +19,31 @@
   </select>
   <button>Choose</button>
  </form>
+
+<div id="moreCityInfo">
+<h3>City Info</h3>
+<p>getting around:</p>
+<p>alone or with a group?</p>
+</div>
+
+<!-- 
+<div class="inputs dropdown">
+  <div class="dropdown-container">
+    <p class="dropdown-description">Description</p>
+    <p class="dropdown-button">Click to Select</p>
+    <ul class="dropdown-menu dropdown-select">
+      <li>Dropdown Menu Item</li>
+      <li>Another Item</li>
+      <li>Item Three</li>
+      <li>The Last One</li>
+    </ul>
+  </div>
+</div>
+ -->
+
+
+
+
 
 <form class="addForms" id="tips" ng-submit="addTip(tip, city.name)" ng-show="tipsShow" >
 	<h2>Inside Tips for the City</h2>
@@ -49,29 +82,37 @@
 <div id= "results"> 
 <div class="lists allResults">
 	<h4>Best Bars</h4>
-	<li ng-repeat="list in lists">
+	<ul class="droptrue">
+	<li class="list" ng-repeat="list in lists">
 		{{list.name}} | {{list.special}} 
 	</li>
+	</ul>
 </div>
 
 <div class="tips allResults">
 	<h4>Tips</h4>
-	<li ng-repeat="tip in tips">
+	<ul class="droptrue">
+	<li class="list" ng-repeat="tip in tips">
 		{{tip.name}}
 	</li>
+	</ul>
 </div>
 
 <div class="date allResults">
 	<h4>Date Spots</h4>
-	<li ng-repeat="date in dates">
+	<ul class="droptrue">
+	<li class="list" ng-repeat="date in dates">
 		{{date.name}}
 	</li>
+	</ul>
 </div>
 
 <div class="brunch allResults">
 	<h4>Brunch Spots</h4>
-	<li ng-repeat="brunch in brunchs">
+	<ul class="droptrue">
+	<li class="list" ng-repeat="brunch in brunchs">
 		{{brunch.name}}
 	</li>
+	</ul>
 </div>
 </div> <!-- end results div -->

@@ -6,11 +6,27 @@ $font1:'Yanone Kaffeesatz';
 $font2:'Quicksand';
 $color1: HSLA(252, 9%, 22%, 1); /*shark*/
 $color2: HSLA(178, 13%, 40%, 1); /*dark green*/
-body {
 
-  font-family: $font1;
-  
+
+.sidebarPro{
+  border: solid 1px gray;
+  height: 1000px;
+  width: 15%;
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: 0;
+
 }
+
+.save{
+  border: solid 1px black;
+}
+
+body {
+  font-family: $font1;
+}
+
 
 h1{
   font-family: $font2;
@@ -29,12 +45,12 @@ a{
 }
 
 .hero-unit {
-  margin: 50px auto 0 auto;
-  width: 80%;
+  padding: 0px;
+  margin-top: -10px;
+  width: 100%;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  
   border-radius: 6px;
   padding: 60px;
   h1 {
@@ -162,10 +178,11 @@ li{
   cursor: crosshair;
 }
 .addForms{
-  width: 300px;
+  width: 30%;
+  float: left;
 }
 .allResults{
-  width: 300px;
+  width: 30%;
   border: solid 1px gray;
   padding: 5px;
   margin: 5px;
@@ -180,4 +197,20 @@ li{
 
 #results{
   float: right;
+}
+
+@media (max-width: 700px){
+
+  li{
+    display: inline-block;
+    width: 40%;
+    margin: 2px;
+    padding: 3px;
+    text-align: center;
+  }
+  #inputs{
+
+  }
+    
+
 }

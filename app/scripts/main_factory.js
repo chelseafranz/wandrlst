@@ -1,5 +1,5 @@
 (function  () {
-	angular.module('WanderMod').factory( 'MainFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$routeParams',function ($http, PARSE_HEADERS, PARSE_URI, $routeParams){
+	angular.module('WanderMod').factory( 'MainFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$routeParams','$cookieStore',function ($http, PARSE_HEADERS, PARSE_URI, $routeParams, $cookieStore){
 		
 		var url= 'https://api.parse.com/1/classes/Cities/';
 		var userUrl = ' https://api.parse.com/1/users/';
@@ -59,10 +59,6 @@
 			return $http.get(listUrl, PARSE_HEADERS);
 		};
 
-        // var getTips= function(){
-        //     return $http.get(tipsUrl, PARSE_HEADERS);
-        // };
-
         var addTip = function(tip){
         $http.post(tipsUrl, tip, PARSE_HEADERS).success(function(){
             console.log('successfully added a tip');
@@ -88,9 +84,6 @@
         });
         };
 
-        var draggable= function(){
-            $( ".list" ).draggable();
-        }
 
 
 
@@ -108,8 +101,7 @@
             tipsByCity : tipsByCity,
             listsByCity : listsByCity,
             datesByCity : datesByCity,
-            brunchsByCity : brunchsByCity,
-            draggable : draggable
+            brunchsByCity : brunchsByCity
 
         	
         };

@@ -35,11 +35,13 @@
         }
          var currentUser = function () {
           return $cookieStore.get('currentUser');
+          $scope.current= 'currentUser';
+          console.log($scope.current)
         };
 
         var getUserProfile= function(){
           return $cookieStore.get('currentUser');
-          $logout.path('/user-profile');
+          $logout.path('/');
         }
 
         return{

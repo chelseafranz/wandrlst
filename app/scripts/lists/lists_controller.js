@@ -3,16 +3,43 @@
 	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams){
 		var list;
 
+// $( "#selectList li" ).draggable({
+//       appendTo: "body",
+//       helper: "clone"
+//     });
+//     $( "#cart ul" ).droppable({
+//       activeClass: "ui-state-default",
+//       hoverClass: "ui-state-hover",
+//       accept: ":not(.ui-sortable-helper)",
+//       drop: function( event, ui ) {
+//         $( this ).find( ".placeholder" ).remove();
+//         $( "<li></li>" )q.text( ui.draggable.text() ).appendTo( this );
+//       }
+//     }).sortable({
+//       items: "li:not(.placeholder)",
+//       sort: function() {
+//         // gets added unintentionally by droppable interacting with sortable
+//         // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+//         $( this ).removeClass( "ui-state-default" );
+//       }
+//     });
+
+
 		$scope.tipsShow= false;
 		$scope.listShow= false;
 		$scope.dateShow= false;
 		$scope.brunchShow= false;
 
 	
-	$( ".lists" ).draggable({ addClasses: true });
-	$( ".tips" ).draggable({ addClasses: true });
-	$( ".date" ).draggable({ addClasses: true });
-	$( ".brunch" ).draggable({ addClasses: true });
+	$( ".lists" ).draggable({ addClasses: true,});
+	$( ".tips" ).draggable({ addClasses: true, });
+	$( ".date" ).draggable({ addClasses: true, });
+	$( ".brunch" ).draggable({ addClasses: true, });
+	$('li').droppable({ addClasses: true})
+
+	$( "ul.droptrue" ).sortable({
+      connectWith: "ul"
+    });
 
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
@@ -38,7 +65,7 @@
 			console.log(c);
 			newList.city= c;
 			MainFactory.addList(newList);
-			 //$('#bars')[0].reset();
+			 // $('input')[0].reset();
 			};
 
 
