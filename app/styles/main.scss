@@ -13,9 +13,7 @@ $color2: HSLA(178, 13%, 40%, 1); /*dark green*/
   width: 20%;
 }
 
-.mywandrlst{
-  overflow: scroll;
-}
+
 
 ul { 
   padding: 2em; 
@@ -37,7 +35,7 @@ ul {
   border: solid 1px gray;
  /* width: 15%;*/
   float: right;
-  position: absolute;
+  /*position: absolute;*/
   right: 10px;
   top: 0;
 
@@ -54,13 +52,24 @@ body {
 
 h1{
   font-family: $font2;
+  z-index: 100;
 }
 h2{
   font-family: $font1;
 }
+h3{
+  font-family: $font2; 
+}
+h4{
+  font-family: $font1;
+}
+h5{
+  font-family: $font2;
+}
 
 button{
   background-color: $color1;
+  font-family: $font2
 }
 
 a{
@@ -128,6 +137,8 @@ a{
   $horizontal-angle: 90deg;
 
   position: relative;
+  z-index: 0;
+  margin-top: -100px;
   line-height: 0;
   width: 100%;
   margin-bottom: $base-line-height;  
@@ -215,15 +226,158 @@ li{
   float: right;
  
 }
+/*modal */
+.modal {
+  $modal-padding: 3em;
+  $modal-background: $base-background-color;
+  $modal-close-color: $light-gray;
+  $modal-image-height: 235px;
+  $modal-image-width: $modal-image-height;
 
+  label {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
 
-#inputs{
-  float: left;
+  label img {
+    $img-width: 300px;
+    border-radius: $img-width/2;
+    display: block;
+    max-width: $img-width;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .btn {
+    @extend button;
+    font-family: $font2;
+  }
+
+  .modal-open {
+    overflow: scroll;
+  }
+
+  .modal-window { // overlay
+    @include transition(opacity .25s ease);
+    @include position(fixed, 0px 0px 0px 0px);
+    background: rgba(0,0,0, .85);
+    opacity: 0;
+    text-align: left;
+    visibility: hidden;
+    z-index: 99999999999;
+
+    .modal-bg {
+      @include position(absolute, 0px 0px 0px 0px);
+      cursor: pointer;
+    }
+  }
+
+  .modal-close {
+    @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
+    @include size(1.5em);
+    cursor: pointer;
+    background: $modal-background;
+
+    &:after,
+    &:before {
+      @include position(absolute, 3px 3px 0 50%);
+      @include transform(rotate(45deg));
+      @include size(.15em 1.5em);
+      background: $modal-close-color;
+      content: '';
+      display: block;
+      margin: -3px 0 0 -1px;
+    }
+
+    &:hover:after,
+    &:hover:before {
+      background: darken($modal-close-color, 10);
+    }
+
+    &:before {
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  .modal-inner {
+    @include transition(opacity .25s ease);
+    border-radius: $base-border-radius;
+    background: $modal-background;
+    margin: auto;
+    max-height: 95%;
+    position: relative;
+    overflow: scroll;
+    width: 95%;
+    padding: $modal-padding /2;
+    margin-top: .6em;
+
+    @include media($medium-screen) {
+      padding: $modal-padding;
+      width: 60%;
+      max-height: 60%;
+      margin-top: 10em;
+    }
+
+    @include media($large-screen) {
+      width: 50%;
+      margin-top: 10em;
+    }
+
+    h1 {
+      color: $base-font-color;
+      margin-bottom: .6em;
+      text-align: left;
+      text-transform: capitalize;
+    }
+
+    p.body, p.intro {
+      font-size: $base-font-size;
+      max-width: 100% !important;
+      text-align: left;
+
+      &.intro {
+        color: $blue;
+        line-height: 1.6em;
+      }
+
+      &.body { 
+        color: $base-font-color;
+        line-height: 1.45em;
+
+        @include media($medium-screen) {
+          @include columns(2 8em);
+        }
+      }
+    }
+
+    a.cta {
+      color: white;
+      display: inline-block;
+      margin-right: .5em;
+      margin-top: 1em;
+
+      &:last-child {
+        padding: 0 2em;
+      }
+    }
+  }
+
+  .modal-state:checked + .modal-window {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-state:checked + .modal-window .modal-inner {
+    top: 0;
+  }
 }
 
-#results{
-  float: right;
-}
+ /*Based on code by Kasper Mikiewicz*/
+
+
+/* modal */
 
 @media (max-width: 700px){
 

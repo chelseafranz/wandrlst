@@ -23,11 +23,7 @@
 		
 		$scope.user = UserFactory.currentUser();
 		userID= $scope.user.objectId;
-		console.log(userID);
 	
-
-        var city;
-
         $scope.userProfile= function  (user) {
         	UserFactory.getUserProfile
          return $cookieStore.get('currentUser');

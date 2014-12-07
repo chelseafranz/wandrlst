@@ -7,13 +7,15 @@
 
   		$scope.addUser= function(user){
   			UserFactory.register(user);
+        UserFactory.login(user);
   			$location.path('/start');
   		};
 
   		$scope.login = function(user){
-  			UserFactory.login(user)
-  			
+  			UserFactory.login(user)	
   		};
+
+
 
   	
   	
@@ -32,7 +34,7 @@
         var currentUser = function(){
           MainFactory.currentUser();
           console.log('user');
-        }
+        };
        
 
 

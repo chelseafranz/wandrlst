@@ -2,18 +2,45 @@
 
 <div id="user"></div>
 
-<a href="" ng-click="logout()">log out</a>
+<button ng-click="logout()">log out</button>
 <button ng-click="userProfile()">Profile</button> 
 
-  <!--  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
+
 
 
     <div class="container">
     {{title}}
     <ul>
-        <li class="mainList" ng-repeat="city in cities" id="{{city.objectId}}">
+
+<div class="modal"> <!-- modal -->
+  <label for="modal-1">
+    <div class="btn js-btn">Add to the List</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal-1"></label>
+    <h4>Add to the Wandrlst</h4>
+      <h4>{{city.name}} | {{city.country}}</h4>
+
+      <form id='addForm' ng-submit='addCity(city)'>
+      <div class="body">
+        <input type="text" ng-model="city.name" placeholder="name"></input>
+      </div>
+      <div class="body">
+        <input type="text" ng-model="city.country" placeholder="country"></input>
+      </div>
+<button>Add</button>
+       </form>
+
+
+    </div>
+  </div>
+</div> <!-- end modal -->
+
+        <li class="mainList" ng-repeat="city in cities" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
             
-            <span ng-click="getOneCity(city.objectId)">
+            <span  >
                 {{city.name}}  |  {{city.country}}
             </span>
         </li>
@@ -21,13 +48,21 @@
     </ul>
     <hr/>
 
-    <h2>Add to the List</h2>
+
+
+
+
+<!--     <h2>Add to the List</h2>
     <h3>{{city.name}} | {{city.country}}</h3>
 <form id='addForm' ng-submit='addCity(city)'>
 <input type="text" ng-model="city.name" placeholder="name"></input>
 <input type="text" ng-model="city.country" placeholder="country"></input>
 
 <button>Add Item</button>
-    </form>
+    </form> -->
+
 </div>
 
+
+
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> 

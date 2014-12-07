@@ -4,6 +4,7 @@
 		  var register = function (user) {
           $http.post(PARSE_URI+ 'users',user, PARSE_HEADERS).success( function (data){
             console.log('Welcome ' + user.username);
+            
           });
         };	
 
@@ -31,11 +32,11 @@
            $cookieStore.remove('currentUser');
           return checkUser();
           console.log('logged out');
-        }
+        };
          var currentUser = function () {
           return $cookieStore.get('currentUser');
           $scope.current= 'currentUser';
-          console.log($scope.current)
+          console.log($scope.current);
         };
 
         var userProfile = function(uid){
