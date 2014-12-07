@@ -67,7 +67,7 @@
     	$scope.userProfile= function(userID){
     		console.log($scope.user.objectId);
     		userID= $scope.user.objectId;
-    		$location.path('/user-profile/'+ userID);
+    		$location.path('/users/'+ userID);
     	};
 
 			$scope.map = { 

@@ -38,7 +38,7 @@
 		 	controller: 'SearchController'
 		 });
 
-		 $routeProvider.when('/user-profile/:uid', {
+		 $routeProvider.when('/users/:uid', {
 		 	templateUrl: 'scripts/users/user-profile.html',
 		 	controller: 'StartController'
 		 });
