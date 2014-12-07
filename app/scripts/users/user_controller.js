@@ -16,8 +16,7 @@
   		};
 
   	
-  		
-
+  	
       var checkUser = function (user) {
           var user = $cookieStore.get('currentUser');
           if(user) {
@@ -29,10 +28,6 @@
             $location.path('/');
           }
         };
-
-
-
-       
 
         var currentUser = function(){
           MainFactory.currentUser();

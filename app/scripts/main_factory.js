@@ -49,8 +49,8 @@
         var addList = function(list){
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
-			//$('#bars')[0].reset();
-		});
+			});
+        //$('#bars')[0].reset();
 		};
 
 		
@@ -60,27 +60,24 @@
 
         var addTip = function(tip){
         $http.post(tipsUrl, tip, PARSE_HEADERS).success(function(){
-            console.log('successfully added a tip');
-            // $('#tips')[0].reset();
-            
+            console.log('successfully added a tip'); 
         });
+         //$('#tips')[0].reset();
         };
 
         
         var addDate = function(date){
         $http.post(dateUrl, date, PARSE_HEADERS).success(function(){
             console.log('successfully added a date');
-            // $('#tips')[0].reset();
-            
         });
+        //$('#date')[0].reset();
         };
 
         var addBrunch = function(brunch){
         $http.post(brunchUrl, brunch, PARSE_HEADERS).success(function(){
             console.log('successfully added a brunch');
-            // $('#tips')[0].reset();
-            
-        });
+          });
+        //$('#brunch')[0].reset();
         };
 
 

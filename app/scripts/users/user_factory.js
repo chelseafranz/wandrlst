@@ -12,7 +12,6 @@
         $http.get(PARSE_URI + 'login/?'+params, PARSE_HEADERS)
             .success( function (data) {
             $cookieStore.put('currentUser', data);
-            console.log( 'welcome back '+ user.username);
               return checkUser();    
           });
         };
@@ -39,11 +38,12 @@
           console.log($scope.current)
         };
 
-        var userProfile = function(user){
-          var query= '?' +'where={"user": "'+user+'"}';
-          console.log(user);
-          return $http.get(PARSE_URI + 'user-profile' + query, PARSE_HEADERS);
+        var userProfile = function(uid){
+          return $http.get(url+uid, PARSE_HEADERS);
+          
         };
+
+
 
         return{
         	register : register,

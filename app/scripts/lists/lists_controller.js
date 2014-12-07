@@ -3,11 +3,14 @@
 	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory){
 		var list;
 
-		var addSave= function  (save) {
+		var addSave= function  (save, u) {
+			console.log(u);
 			SaveFactory.addSave(save);
 		};
 	
 	$scope.user = UserFactory.currentUser();
+	userID= $scope.user.objectId;
+	console.log(userID);
 
 		$scope.tipsShow= false;
 		$scope.listShow= false;
@@ -49,7 +52,7 @@
 			console.log(c);
 			newList.city= c;
 			MainFactory.addList(newList);
-			 // $('input')[0].reset();
+			  $('#bars')[0].reset();
 			};
 
 
@@ -67,8 +70,9 @@
 
 		$scope.addBrunch=function(newBrunch, c){
 			newBrunch.city=c;
-			MainFactory.addBrunch(newBrunch);
+			MainFactory.addBrunch(newBrunch)	
 		};
+		
 
 		$scope.chooseList= function(){
 			var choose= $('select').val();

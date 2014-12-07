@@ -22,6 +22,8 @@
 		});
 		
 		$scope.user = UserFactory.currentUser();
+		userID= $scope.user.objectId;
+		console.log(userID);
 	
 
         var city;
@@ -60,19 +62,13 @@
     	$scope.logout=function(user){
     		UserFactory.logout(user);
     		console.log("logged out");
-    	}
+    	};
 
-
-
-
-
-		// $scope.addList= function(newList, t){
-		// 	console.log(t);
-
-		// 	// ListsFactory.addList(newList);
-		// //$('#lID').val(newList.objectId).trigger('input');
-		
-		// 	};
+    	$scope.userProfile= function(userID){
+    		console.log($scope.user.objectId);
+    		userID= $scope.user.objectId;
+    		$location.path('/user-profile/'+ userID);
+    	};
 
 			$scope.map = { 
 			center: { latitude: 45, longitude: -80 },

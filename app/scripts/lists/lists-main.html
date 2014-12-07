@@ -1,19 +1,17 @@
 	
 <div class="demo">
 
-
-    <ul class= "mywandrlst" id="droppable">
+	<form>
+    <ul class= "mywandrlst" id="droppable" >
     	<p>{{user.username}}'s {{city.name}} wandrlst</p>
     	
     </ul>
-    
-    	<button ng-click="addSave(save)">Save</button>
+   
+    <button ng-click="addSave(save, user.objectId)">Save</button>
+    </form>
 </div>
 
 </div>
-
-
-
 
 
 <h1>{{city.name}}</h1>
@@ -63,13 +61,13 @@
 
 <form class="addForms" id="bars" ng-submit="addList(list, city.name)" ng-show="listShow">
 	<h2>Best Bars</h2>
-		<input type="text" placeholder="add a bar" ng-model="list.name"></input>
-		<input type="text" placeholder="any specialties?" ng-model="list.special"></input>
-		<input type="text" ng-model="list.neighborhood" placeholder="type of neighborhood"></input>
+		<input type="text" placeholder="add a bar" ng-model="list.name" ng-model="save.bar"></input>
+		<input type="text" placeholder="any specialties?" ng-model="list.special" ng-model="save.special"></input>
+		<input type="text" ng-model="list.neighborhood" ng-model="save.neighborhood" placeholder="type of neighborhood"></input>
 	<button>Add</button>
 </form>
 
-<form class="addForms" id="date" ng-submit="addDate(date, city.name)" ng-show="dateShow">
+<form class="addForms" id='date' ng-submit="addDate(date, city.name)" ng-show="dateShow">
 	<h2>Date Night</h2>
 		<input type="text" placeholder="add a spot" ng-model="date.name"></input>
 		<input type="text" placeholder="any recomendations?" ng-model="date.recommend"></input>
