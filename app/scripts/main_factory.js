@@ -14,8 +14,7 @@
 
         var addCity = function(city){
         $http.post(url, city, PARSE_HEADERS).success(function(){
-        	console.log('city has been added');
-
+            console.log('city added');
         });
         $('#addForm')[0].reset();
         };
@@ -83,6 +82,8 @@
             
         });
         };
+
+
 
 
 

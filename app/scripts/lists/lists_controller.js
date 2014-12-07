@@ -1,8 +1,13 @@
 (function  () {
 
-	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams){
+	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory){
 		var list;
 
+		var addSave= function  (save) {
+			SaveFactory.addSave(save);
+		};
+	
+	$scope.user = UserFactory.currentUser();
 
 		$scope.tipsShow= false;
 		$scope.listShow= false;
@@ -10,11 +15,11 @@
 		$scope.brunchShow= false;
 
 	
-	$( ".lists" ).draggable({ addClasses: true,});
-	$( ".tips" ).draggable({ addClasses: true, });
-	$( ".date" ).draggable({ addClasses: true, });
-	$( ".brunch" ).draggable({ addClasses: true, });
-	$('li').droppable({ addClasses: true})
+	$( ".lists" ).draggable({ addClasses: true});
+	$( ".tips" ).draggable({ addClasses: true });
+	$( ".date" ).draggable({ addClasses: true});
+	$( ".brunch" ).draggable({ addClasses: true });
+	$('li').droppable({ addClasses: true});
 
 	$( "ul.droptrue" ).sortable({
       connectWith: "ul"
@@ -105,13 +110,13 @@
         start: function(e, ui) {
             ui.helper.addClass(selectedClass);
         },
-        stop: function(e, ui) {
-            // reset group positions
-            $('.' + selectedClass).css({
-                top: 0,
-                left: 0
-            });
-        },
+        // stop: function(e, ui) {
+        //     // reset group positions
+        //     $('.' + selectedClass).css({
+        //         top: 0,
+        //         left: 0
+        //     });
+        // },
         drag: function(e, ui) {
             // set selected group position to main dragged object
             // this works because the position is relative to the starting position
@@ -134,6 +139,8 @@
     });
 
 });
+
+	
 		
 
 	}]); //end controller

@@ -31,6 +31,7 @@
         var logout = function(user){
            $cookieStore.remove('currentUser');
           return checkUser();
+          console.log('logged out');
         }
          var currentUser = function () {
           return $cookieStore.get('currentUser');
@@ -38,10 +39,11 @@
           console.log($scope.current)
         };
 
-        var getUserProfile= function(){
-          return $cookieStore.get('currentUser');
-          $logout.path('/');
-        }
+        var userProfile = function(user){
+          var query= '?' +'where={"user": "'+user+'"}';
+          console.log(user);
+          return $http.get(PARSE_URI + 'user-profile' + query, PARSE_HEADERS);
+        };
 
         return{
         	register : register,
@@ -49,7 +51,8 @@
         	checkUser : checkUser,
           logout : logout,
           currentUser : currentUser,
-          getUserProfile : getUserProfile
+          userProfile : userProfile
+          
 
         }
 

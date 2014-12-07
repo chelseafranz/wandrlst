@@ -1,6 +1,10 @@
 (function() {
 	angular.module('WanderMod').controller('UserController', ['$scope', '$location', 'PARSE_HEADERS','UserFactory','MainFactory', '$http','$cookieStore','$routeParams',function  ($scope, $location, PARSE_HEADERS, UserFactory, $http, $cookieStore, MainFactory, $routeParams ) {
 		
+      //$scope.user = UserFactory.currentUser();
+     // console.log($scope.user.objectId);
+
+
   		$scope.addUser= function(user){
   			UserFactory.register(user);
   			$location.path('/start');
@@ -11,10 +15,7 @@
   			
   		};
 
-  		// $scope.logout = function(){
-    //       $cookieStore.remove('currentUser');
-    //       return checkUser();
-    //     };
+  	
   		
 
       var checkUser = function (user) {
@@ -29,11 +30,7 @@
           }
         };
 
-        var getUserProfile= function  (user) {
-         var user = $cookieStore.get('currentUser');
-         user= 'currentUser';
-         console.log(user);
-        };
+
 
        
 
