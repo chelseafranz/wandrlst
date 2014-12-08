@@ -90,7 +90,7 @@
 <div class="lists allResults">
 	<h4>Best Bars</h4>
 	<ul class="droptrue">
-	<li class="list" ng-repeat="list in lists">
+	<li id="{{list.objectId}}" class="list" ng-repeat="list in lists">
 		{{list.name}} | {{list.special}} 
 	</li>
 	</ul>
@@ -99,7 +99,7 @@
 <div class="tips allResults">
 	<h4>Tips</h4>
 	<ul class="droptrue">
-	<li class="list" ng-repeat="tip in tips">
+	<li id="{{tip.objectId}}" class="list" ng-repeat="tip in tips">
 		{{tip.name}}
 	</li>
 	</ul>
@@ -108,7 +108,7 @@
 <div class="date allResults">
 	<h4>Date Spots</h4>
 	<ul class="droptrue">
-	<li class="list" ng-repeat="date in dates">
+	<li id="{{date.objectId}}" class="list" ng-repeat="date in dates">
 		{{date.name}}
 	</li>
 	</ul>
@@ -117,7 +117,7 @@
 <div class="brunch allResults">
 	<h4>Brunch Spots</h4>
 	<ul class="droptrue">
-	<li class="list" ng-repeat="brunch in brunchs">
+	<li id="{{brunch.objectId}}" class="list" ng-repeat="brunch in brunchs">
 		{{brunch.name}}
 	</li>
 	</ul>

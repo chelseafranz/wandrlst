@@ -28,12 +28,16 @@
 	$('li').droppable({ addClasses: true, tolerance: 'fit', context: 'ul',  greedy: true});
 
 	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
-		saved.push($('.mywandrlst li'));
+		saved.push(li.draggable[0].id);
+		console.log(li);
 		console.log(saved);
 		console.log(saved.length);
-		// $cookieStore.put('saved', saved);
-		// return saved();
+
 	});
+
+
+
+
 
 	   	$scope.editUserProfile= function(user){
         	userID= $scope.user.objectId;
