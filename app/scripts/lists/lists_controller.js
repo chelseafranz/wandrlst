@@ -22,7 +22,16 @@
 	$( ".tips" ).draggable({ addClasses: true });
 	$( ".date" ).draggable({ addClasses: true});
 	$( ".brunch" ).draggable({ addClasses: true });
-	$('li').droppable({ addClasses: true});
+
+	var saved=[];
+
+	$('li').droppable({ addClasses: true, tolerance: 'intersect'});
+
+	$( "ul" ).on( "drop", function( drop, li ) {
+		saved.push($('ul'));
+		console.log(saved);
+		//$cookieStore.put(saved);
+	});
 
 	$( "ul.droptrue" ).sortable({
       connectWith: "ul"
@@ -143,6 +152,8 @@
     });
 
 });
+
+      $( ".mywandrlst" ).on( "drop", function( drop, ui ) {} );
 
 	
 		

@@ -1,5 +1,5 @@
 (function  () {
-	angular.module('WanderMod').factory( 'MainFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$routeParams','$cookieStore',function ($http, PARSE_HEADERS, PARSE_URI, $routeParams, $cookieStore){
+	angular.module('WanderMod').factory( 'MainFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$routeParams','$cookieStore', function ($http, PARSE_HEADERS, PARSE_URI, $routeParams, $cookieStore){
 		
 		var url= 'https://api.parse.com/1/classes/Cities/';
 		var userUrl = ' https://api.parse.com/1/users/';
@@ -8,6 +8,7 @@
         var dateUrl= 'https://api.parse.com/1/classes/date/';
 	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
 
+   
         var getCities = function () {
           return $http.get(url, PARSE_HEADERS);
         };
@@ -50,7 +51,7 @@
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
 			});
-        //$('#bars')[0].reset();
+     
 		};
 
 		
@@ -77,10 +78,17 @@
         $http.post(brunchUrl, brunch, PARSE_HEADERS).success(function(){
             console.log('successfully added a brunch');
           });
-        //$('#brunch')[0].reset();
+        $('#brunch')[0].reset();
         };
 
+        var addCity = function(city){
+        $http.post(url, city, PARSE_HEADERS).success(function(){
+            console.log('city added');
+        });
+        $('#addForm')[0].reset();
+        };
 
+     
 
 
 
@@ -100,8 +108,6 @@
             listsByCity : listsByCity,
             datesByCity : datesByCity,
             brunchsByCity : brunchsByCity
-
-        	
         };
 }]);
 

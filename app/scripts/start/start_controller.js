@@ -65,15 +65,30 @@
     	};
 
     	$scope.editUserProfile= function(user){
-    		userID= $scope.user.objectId;
-    		$http.put(userUrl+ userID, user, {headers:{
-    		    		'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u', 
-    		    		  'X-Parse-REST-API-Key': '0fc6LBtsQvnM1PuNQR5Tz8YKoP1Vt9kSbEHCKSvM', 
-    		    		'X-Parse-Session-Token': currentUser.sessionToken, }})
-    		.success(function(){
-    			console.log('updated info')
-    		});
-    	};
+        	userID= $scope.user.objectId;
+        $http.put(userUrl+ userID, user, {headers:{
+                'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u', 
+                  'X-Parse-REST-API-Key': '0fc6LBtsQvnM1PuNQR5Tz8YKoP1Vt9kSbEHCKSvM', 
+                'X-Parse-Session-Token': currentUser.sessionToken, }})
+        .success(function(){
+          console.log('updated info')
+        });
+      };
+
+      
+     //  $scope.getUserProfile= function(user){
+     //     return $http.get(userUrl+ userID, user, PARSE_HEADERS)
+     //  };
+
+     // $scope.getUserProfile().success(function(){
+     // 	  console.log('got user info')
+     //      $scope.users= results.data
+       
+
+     // });
+
+
+
 
 ////////////////////////////////////////////// mapbox
     var token= L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbHNlYWZyYW56MyIsImEiOiItY01TaEpJIn0.JaYH9lRg1C_GmkfW0jtAXQ';

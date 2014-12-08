@@ -378,33 +378,39 @@ li{
 
 
 /* modal */
+#map{
+  height: 400px;
+  position: relative;
+}
 .ui-button {
   background:#3887BE;
   color:#FFF;
   display:block;
   position:absolute;
-  top:90%;left:50%;
-  width:160px;
+  bottom: -256px;
+left: 141px;
+  width:70px;
   margin:-20px 0 0 -80px;
   z-index:100;
   text-align:center;
-  padding:10px;
-  border:1px solid rgba(0,0,0,0.4);
+  padding:0px;
+  border:none;
   border-radius:3px;
+  background-color: $color1;
   }
   .ui-button:hover {
     background:#3074a4;
     color:#fff;
     }
 
-
-
-#map{
-  height: 400px;
-}
-
 .leaflet-container{
   height: 470px;
+}
+
+#userImage{
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
 }
 
 @media (max-width: 700px){

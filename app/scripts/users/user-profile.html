@@ -1,17 +1,37 @@
-{{user.username}}
+<img id="userImage" src= "{{user.image.url}}"/> </br>
+{{user.username}} | location: {{user.wander}} | favorite place to wander {{user.location}}
 
-<h2>Here's your profile. Where you will store all of your lists.</h2>
 
-Tell us about yourself<button ng-submit="editProfile()"></button>
+<h2>Here's your profile.</h2>
+<form >
+  
+</form>
+
+<div class="modal"> <!-- modal -->
+  <label for="modal-1">
+    <div class="btn js-btn">Edit Profile</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal-1"></label>
+    <h4>Edit Your Profile</h4>
+      <h3>{{user.username}}</h3>
+
+<form ng-submit="editUserProfile(user)">
+<input type="text" ng-model="user.location" placeholder="current location"></input>
+<input type="text" ng-model="user.wander" placeholder="favorite palce to wander"></input>
+<input ng-model="user.image" type="file" name="pic" accept="image/*">
+<button>edit</button>
+</form>
+
 <div id='map'></div>
 <form id="addMarker">
 <input id="text" type="text"></input>
 <button>add</button>
 </form>
-<a href='#' id='geolocate' class='ui-button'>Find me</a>
+<a href='#' id='geolocate' class='ui-button locateButton'>Find me</a>
+    </div>
+  </div>
+</div> <!-- end modal -->
 
-<form ng-submit="editUserProfile(user)">
-<input type="text" ng-model="user.color" placeholder="color"></input>
-<input type="text" ng-model="user.new" placeholder="new"></input>
-<button>edit</button>
-</form>
