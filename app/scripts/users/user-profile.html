@@ -1,5 +1,6 @@
 <img id="userImage" src= "{{user.image.url}}"/> </br>
-{{user.username}} | location: {{user.wander}} | favorite place to wander {{user.location}}
+{{user.username}} | location: {{user.location}} | favorite place to wander: {{user.wander}}
+
 
 
 <h2>Here's your profile.</h2>
@@ -21,6 +22,7 @@
 <form ng-submit="editUserProfile(user)">
 <input type="text" ng-model="user.location" placeholder="current location"></input>
 <input type="text" ng-model="user.wander" placeholder="favorite palce to wander"></input>
+<br>
 <input ng-model="user.image" type="file" name="pic" accept="image/*">
 <button>edit</button>
 </form>

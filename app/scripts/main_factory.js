@@ -63,7 +63,7 @@
         $http.post(tipsUrl, tip, PARSE_HEADERS).success(function(){
             console.log('successfully added a tip'); 
         });
-         //$('#tips')[0].reset();
+         $('#tipsF')[0].reset();
         };
 
         
@@ -71,23 +71,17 @@
         $http.post(dateUrl, date, PARSE_HEADERS).success(function(){
             console.log('successfully added a date');
         });
-        //$('#date')[0].reset();
+       $('#dateF')[0].reset();
         };
 
         var addBrunch = function(brunch){
         $http.post(brunchUrl, brunch, PARSE_HEADERS).success(function(){
             console.log('successfully added a brunch');
           });
-        $('#brunch')[0].reset();
+        $('#brunchF')[0].reset();
         };
 
-        var addCity = function(city){
-        $http.post(url, city, PARSE_HEADERS).success(function(){
-            console.log('city added');
-        });
-        $('#addForm')[0].reset();
-        };
-
+    
      
 
 

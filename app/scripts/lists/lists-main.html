@@ -52,14 +52,14 @@
 
 
 
-<form class="addForms" id="tips" ng-submit="addTip(tip, city.name)" ng-show="tipsShow" >
+<form class="addForms" id="tipsF" ng-submit="addTip(tip, city.name)" ng-show="tipsShow" >
 	<h2>Inside Tips for the City</h2>
 		<input type="text" placeholder="add" ng-model="tip.name"></input>
 		<input type="text" ng-model="tip.neighborhood" placeholder="neighborhood"></input>
 	<button>Add</button>
 </form>
 
-<form class="addForms" id="bars" ng-submit="addList(list, city.name)" ng-show="listShow">
+<form class="addForms" id="barsF" ng-submit="addList(list, city.name)" ng-show="listShow">
 	<h2>Best Bars</h2>
 		<input type="text" placeholder="add a bar" ng-model="list.name" ng-model="save.bar"></input>
 		<input type="text" placeholder="any specialties?" ng-model="list.special" ng-model="save.special"></input>
@@ -67,7 +67,7 @@
 	<button>Add</button>
 </form>
 
-<form class="addForms" id='date' ng-submit="addDate(date, city.name)" ng-show="dateShow">
+<form class="addForms" id='dateF' ng-submit="addDate(date, city.name)" ng-show="dateShow">
 	<h2>Date Night</h2>
 		<input type="text" placeholder="add a spot" ng-model="date.name"></input>
 		<input type="text" placeholder="any recomendations?" ng-model="date.recommend"></input>
@@ -75,7 +75,7 @@
 	<button>Add</button>
 </form>
 
-<form class="addForms" id="brunch" ng-submit="addBrunch(brunch, city.name)" ng-show="brunchShow">
+<form class="addForms" id="brunchF" ng-submit="addBrunch(brunch, city.name)" ng-show="brunchShow">
 	<h2>Best Places for Brunch</h2>
 		<input type="text" placeholder="add a spot" ng-model="brunch.name"></input>
 		<input type="text" placeholder="any specialties?" ng-model="brunch.specialties"></input>

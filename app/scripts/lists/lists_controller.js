@@ -31,9 +31,8 @@
 		saved.push($('.mywandrlst li'));
 		console.log(saved);
 		console.log(saved.length);
-		//$cookieStore.put('saved', saved);
-		//return saved();
-		user.saved=saved
+		// $cookieStore.put('saved', saved);
+		// return saved();
 	});
 
 	   	$scope.editUserProfile= function(user){
