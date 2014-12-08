@@ -7,6 +7,8 @@
           $scope.cities = data.results;
         });
 
+
+
 		// $scope.$watch('city.name', function (newVal) {
   //         if (newVal) {
   //           MainFactory.getCities(newVal.objectId).success( function (data) {
@@ -35,20 +37,19 @@
         $scope.save= save;
         };
         
-
+        var city;
         $scope.addCity = function (city) {
           MainFactory.addCity(city);
           $scope.city= city.name;
+          city= city.name
            console.log(city);
-        };
+		};
 
         $scope.getOneCity= function(cid){
         	$location.path('/city/' + cid);
         	console.log(cid);
         };
 
-        
-        
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {
             $scope.cities.splice(index, 1);		
@@ -66,15 +67,15 @@
     		$location.path('/users/'+ userID);
     	};
 
-
-    	L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbHNlYWZyYW56MyIsImEiOiItY01TaEpJIn0.JaYH9lRg1C_GmkfW0jtAXQ';
-		var map= L.mapbox.map('map', 'chelseafranz3.kb224fb8'	, {
-			legendControl: {
-				position: 'bottomleft'
-				}
+////////////////////////////////////////////// mapbox
+    var token= L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbHNlYWZyYW56MyIsImEiOiItY01TaEpJIn0.JaYH9lRg1C_GmkfW0jtAXQ';
+	var map= L.mapbox.map('map', 'chelseafranz3.kb224fb8'	, {
+			// legendControl: {
+			// 	position: 'bottomleft'
+			// 	}
 			});		
-		var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-  			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+	var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+  				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
 		}).addTo(map);
 
 	var geocoder = L.mapbox.geocoder('mapbox.places-v1');
@@ -97,6 +98,10 @@
 		autocomplete: true,
 		 keepOpen: true
 	});
+
+	map.on('click', function(e) {
+	alert(e.latlng);
+		});
 
 
 var geolocate = document.getElementById('geolocate');
@@ -126,7 +131,7 @@ map.on('locationfound', function(e) {
         properties: {
             'title': 'Here I am!',
             'marker-color': '#ff8888',
-            'marker-symbol': 'star'
+            'marker-symbol': ''
         }
     });
 
@@ -135,19 +140,15 @@ map.on('locationfound', function(e) {
 });
 
 
+	// $('#addMarker').on('submit', function(){
+	// 	var add=$('#text').val();
+	// 	console.log(add);
+	// 	addMarker.addTo(map);
 
-
-
-
-
-
-
-
-	$('#addMarker').on('submit', function(){
-		var add=$('#text').val();
-		console.log(add);
-		addMarker.addTo(map);
-	});
+	$('#addMarker').on('submit', function(c) {
+		alert(c.latlng);
+			});
+	//});
 
 
 	var addMarker= L.mapbox.featureLayer({
@@ -162,8 +163,6 @@ map.on('locationfound', function(e) {
     properties: {
         title: '{{city.name}}, {{city.country}}',
         description: '1718 14th St NW, Washington, DC',
-        // one can customize markers by adding simplestyle properties
-        // https://www.mapbox.com/foundations/an-open-platform/#simplestyle
         'marker-size': 'small',
         'marker-color': '#35333D',
         'marker-symbol': ''
