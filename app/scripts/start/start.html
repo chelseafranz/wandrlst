@@ -36,7 +36,10 @@
   </div>
 </div> <!-- end modal -->
 
-        <li class="mainList" ng-repeat="city in cities" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
+<h3>Search for a City..</h3>
+<input ng-model="search.$"> <br>
+
+        <li class="mainList" ng-repeat="city in cities |filter:search" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
             
             <span  >
                 {{city.name}}  |  {{city.country}}

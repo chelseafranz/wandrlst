@@ -1,6 +1,6 @@
 (function  () {
 
-	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory){
+	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory','$cookieStore',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory, $cookieStore){
 		var list;
 
 		var addSave= function  (save, u) {
@@ -21,17 +21,34 @@
 	$( ".lists" ).draggable({ addClasses: true});
 	$( ".tips" ).draggable({ addClasses: true });
 	$( ".date" ).draggable({ addClasses: true});
-	$( ".brunch" ).draggable({ addClasses: true });
+	$( ".brunch" ).draggable({ addClasses: true, context: 'ul'  });
 
 	var saved=[];
 
-	$('li').droppable({ addClasses: true, tolerance: 'intersect'});
+	$('li').droppable({ addClasses: true, tolerance: 'fit', context: 'ul',  greedy: true});
 
-	$( "ul" ).on( "drop", function( drop, li ) {
-		saved.push($('ul'));
+	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
+		saved.push($('.mywandrlst li'));
 		console.log(saved);
-		//$cookieStore.put(saved);
+		console.log(saved.length);
+		//$cookieStore.put('saved', saved);
+		//return saved();
+		user.saved=saved
 	});
+
+	   	$scope.editUserProfile= function(user){
+        	userID= $scope.user.objectId;
+        $http.put(userUrl+ userID, user, {headers:{
+                'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u', 
+                  'X-Parse-REST-API-Key': '0fc6LBtsQvnM1PuNQR5Tz8YKoP1Vt9kSbEHCKSvM', 
+                'X-Parse-Session-Token': currentUser.sessionToken, }})
+        .success(function(){
+          console.log('updated info');
+        });
+      };
+
+
+
 
 	$( "ul.droptrue" ).sortable({
       connectWith: "ul"
