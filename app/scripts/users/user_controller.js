@@ -16,9 +16,6 @@
   		};
 
 
-
-  	
-  	
       var checkUser = function (user) {
           var user = $cookieStore.get('currentUser');
           if(user) {

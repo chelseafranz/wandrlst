@@ -3,3 +3,15 @@
 <h2>Here's your profile. Where you will store all of your lists.</h2>
 
 Tell us about yourself<button ng-submit="editProfile()"></button>
+<div id='map'></div>
+<form id="addMarker">
+<input id="text" type="text"></input>
+<button>add</button>
+</form>
+<a href='#' id='geolocate' class='ui-button'>Find me</a>
+
+<form ng-submit="editUserProfile(user)">
+<input type="text" ng-model="user.color" placeholder="color"></input>
+<input type="text" ng-model="user.new" placeholder="new"></input>
+<button>edit</button>
+</form>

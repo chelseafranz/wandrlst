@@ -2,6 +2,7 @@
 	angular.module('WanderMod')
 	.controller( 'StartController', ['$scope', 'uiGmapGoogleMapApi', '$location', '$http', 'PARSE_HEADERS', 'MainFactory','$routeParams','$cookieStore', 'UserFactory','SaveFactory', function($scope, uiGmapGoogleMapApi, $location, $http, PARSE_HEADERS, MainFactory, $routeParams, $cookieStore, UserFactory, SaveFactory ){
 
+		var userUrl = ' https://api.parse.com/1/users/';
 
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
@@ -24,13 +25,9 @@
 		});
 		
 		$scope.user = UserFactory.currentUser();
+		var currentUser= UserFactory.currentUser();
 		userID= $scope.user.objectId;
 	
-        $scope.userProfile= function  (user) {
-        	UserFactory.getUserProfile
-         return $cookieStore.get('currentUser');
-         
-        };
 
         $scope.addSave= function(save){
         SaveFactory.addSave(save);
@@ -65,6 +62,17 @@
     		console.log($scope.user.objectId);
     		userID= $scope.user.objectId;
     		$location.path('/users/'+ userID);
+    	};
+
+    	$scope.editUserProfile= function(user){
+    		userID= $scope.user.objectId;
+    		$http.put(userUrl+ userID, user, {headers:{
+    		    		'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u', 
+    		    		  'X-Parse-REST-API-Key': '0fc6LBtsQvnM1PuNQR5Tz8YKoP1Vt9kSbEHCKSvM', 
+    		    		'X-Parse-Session-Token': currentUser.sessionToken, }})
+    		.success(function(){
+    			console.log('updated info')
+    		});
     	};
 
 ////////////////////////////////////////////// mapbox
