@@ -66,13 +66,16 @@
     		$location.path('/users/'+ userID);
     	};
 
-			$scope.map = { 
-			center: { latitude: 45, longitude: -80 },
-			zoom: 3,
-			};
+    	$('#map_canvas').gmap();
 
-			uiGmapGoogleMapApi.then(function(maps){});
+			// uiGmapGoogleMapApi.then(function(maps){
+			// 	$('#map_canvas').gmap({ 'center': new google.maps.LatLng(42.345573,-71.098326), 'callback': function() {
+   //     		 $('#map_canvas').gmap('addMarker', { 'position': new google.maps.LatLng(42.345573,-71.098326) } );
+			// 	}});
 
+			// });
+
+			
 
 	}]); //end controller
 
