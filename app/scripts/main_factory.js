@@ -8,7 +8,8 @@
         var dateUrl= 'https://api.parse.com/1/classes/date/';
 	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
      var savedUrl = ' https://api.parse.com/1/classes/saved';
-
+  
+ 
 
    
         var getCities = function () {
@@ -84,13 +85,18 @@
         };
 
     
-          var saveList= function(save){ 
-        $http.post(savedUrl, save, PARSE_HEADERS)
+         var saveList= function(save){ 
+          console.log(save);
+          var newSave = {"id": save[0], "userName": save.user, "title": save.title};
+          console.log(newSave);
+        $http.post(savedUrl, newSave, PARSE_HEADERS)
         .success(function(){          
           console.log('saved info');
         });
       };
 
+     
+        
 
       
         return{

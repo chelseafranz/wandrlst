@@ -21,25 +21,27 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 	$( ".tips" ).draggable({ addClasses: true });
 	$( ".date" ).draggable({ addClasses: true});
 	$( ".brunch" ).draggable({ addClasses: true, context: 'ul'  });
-
-	var saved=[];
-
 	$('li').droppable({ addClasses: true, tolerance: 'fit', context: 'ul',  greedy: true});
-
-	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
-		saved.push(li.draggable[0].id);
-		console.log(saved.length);
-		//saved=$scope.user.saved;
-		
-		MainFactory.saveList(saved);
-		console.log(saved);
-		
-	});
-
 
 	$( "ul.droptrue" ).sortable({
       connectWith: "ul"
     });
+
+	var saved=[];
+
+	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
+		saved.push(li.draggable[0].id);
+		//saved.push(li.draggable[0].id);
+		//saved.push(li.draggable[0].innerText);
+		saved.title= li.draggable[0].innerText;
+		console.log(saved.title);
+		saved.user= $scope.user.username;
+		MainFactory.saveList(saved, user);
+		console.log(saved);
+	});
+	
+
+
 
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
