@@ -1,13 +1,13 @@
 	
 <div class="demo">
 
-	<form>
+	<form ng-model="saved">
     <ul class= "mywandrlst" id="droppable" >
     	<p>{{user.username}}'s {{city.name}} wandrlst</p>
     	
     </ul>
    
-    <button ng-click="addSave(save, user.objectId)">Save</button>
+    <button ng-click="saveList(saved)">Save</button>
     </form>
 </div>
 

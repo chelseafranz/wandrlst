@@ -7,6 +7,8 @@
         var tipsUrl= 'https://api.parse.com/1/classes/tips/';
         var dateUrl= 'https://api.parse.com/1/classes/date/';
 	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
+     var savedUrl = ' https://api.parse.com/1/classes/saved';
+
 
    
         var getCities = function () {
@@ -82,9 +84,12 @@
         };
 
     
-     
-
-
+          var saveList= function(save){ 
+        $http.post(savedUrl, save, PARSE_HEADERS)
+        .success(function(){          
+          console.log('saved info');
+        });
+      };
 
 
       
@@ -101,7 +106,8 @@
             tipsByCity : tipsByCity,
             listsByCity : listsByCity,
             datesByCity : datesByCity,
-            brunchsByCity : brunchsByCity
+            brunchsByCity : brunchsByCity,
+            saveList : saveList
         };
 }]);
 

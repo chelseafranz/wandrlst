@@ -1,14 +1,13 @@
 (function  () {
 
-	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory','$cookieStore',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory, $cookieStore){
+	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory','$cookieStore', '$http',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory, $cookieStore, $http){
 		var list;
 
-		var addSave= function  (save, u) {
-			console.log(u);
-			SaveFactory.addSave(save);
-		};
+var userUrl = ' https://api.parse.com/1/users/';
+var savedUrl = ' https://api.parse.com/1/classes/saved';
 	
 	$scope.user = UserFactory.currentUser();
+	currentUser=UserFactory.currentUser();
 	userID= $scope.user.objectId;
 	console.log(userID);
 
@@ -29,28 +28,13 @@
 
 	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
 		saved.push(li.draggable[0].id);
-		console.log(li);
-		console.log(saved);
 		console.log(saved.length);
-
+		//saved=$scope.user.saved;
+		
+		MainFactory.saveList(saved);
+		console.log(saved);
+		
 	});
-
-
-
-
-
-	   	$scope.editUserProfile= function(user){
-        	userID= $scope.user.objectId;
-        $http.put(userUrl+ userID, user, {headers:{
-                'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u', 
-                  'X-Parse-REST-API-Key': '0fc6LBtsQvnM1PuNQR5Tz8YKoP1Vt9kSbEHCKSvM', 
-                'X-Parse-Session-Token': currentUser.sessionToken, }})
-        .success(function(){
-          console.log('updated info');
-        });
-      };
-
-
 
 
 	$( "ul.droptrue" ).sortable({
