@@ -5,6 +5,9 @@
 		var userUrl = ' https://api.parse.com/1/users/';
     var savedUrl = ' https://api.parse.com/1/classes/saved';
 
+    $('.btn').on('click', function(){
+      $('.btn').addClass('animated rubberBand');
+    });
 
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
@@ -114,37 +117,37 @@ var query = '?'+'where={"userName":"'+currentUser+'"}';
 // var geolocate = document.getElementById('geolocate');
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-if (!navigator.geolocation) {
-    geolocate.innerHTML = 'Geolocation is not available';
-} else {
-    geolocate.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.locate();
-    };
-};
+// if (!navigator.geolocation) {
+//     geolocate.innerHTML = 'Geolocation is not available';
+// } else {
+//     geolocate.onclick = function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         map.locate();
+//     };
+// };
 
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
-map.on('locationfound', function(e) {
-    map.fitBounds(e.bounds);
+// map.on('locationfound', function(e) {
+//     map.fitBounds(e.bounds);
 
-    myLayer.setGeoJSON({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [e.latlng.lng, e.latlng.lat]
-        },
-        properties: {
-            'title': 'Here I am!',
-            'marker-color': '#ff8888',
-            'marker-symbol': ''
-        }
-    });
+//     myLayer.setGeoJSON({
+//         type: 'Feature',
+//         geometry: {
+//             type: 'Point',
+//             coordinates: [e.latlng.lng, e.latlng.lat]
+//         },
+//         properties: {
+//             'title': 'Here I am!',
+//             'marker-color': '#ff8888',
+//             'marker-symbol': ''
+//         }
+//     });
 
-    // And hide the geolocation button
-    geolocate.parentNode.removeChild(geolocate);
-});
+//     // And hide the geolocation button
+//     geolocate.parentNode.removeChild(geolocate);
+// });
 
 
 

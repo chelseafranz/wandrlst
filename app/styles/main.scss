@@ -2,30 +2,88 @@
 @import '../../bower_components/bitters/app/assets/stylesheets/base';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
-$font1:'Yanone Kaffeesatz';
-$font2:'Quicksand';
+$font1:'Open Sans Condensed';
+$font2:'Oswald';
 $color1: HSLA(252, 9%, 22%, 1); /*shark*/
 $color2: HSLA(178, 13%, 40%, 1); /*dark green*/
 
 /*.demo { width: 620px }*/
-
+#landingPage{
+}
 .mainList{
-  width: 20%;
+  width: 25%;
+  height: 65px;
 }
 
+.topBar{
+  width: 100%;
+  height: 220px;
+  font-size: 50px;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: -1px;
+  display: inline-block;
+  margin: 0 auto;
+ color: black;  /* Fallback: assume this color ON TOP of image */
+background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/F95YhSan5HJ2EH5/8346095057_b3d59e5548_o_%281%29.jpg);
+background-size: 70%;
+background-attachment: fixed;
+background-position: top;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor:crosshair;
+ width: 100%;
+}
 
+#title{
+  font-size: 200px;
+  text-align: center;
+}
+#subtitle{
+  text-align: center;
+}
+#userForm{
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
+.register{
+  float: right;
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+}
+.login{
+  float: left;
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+}
+.mainList:hover{
+  background-color: HSLA(252, 9%, 22%, .2);
+  transition: background-color 2s;
+}
+.cityList{
+  color: $color1;
+}
 
 ul { 
   padding: 2em; 
   color:#ddd; 
-  list-style: none; }
+  list-style: none; 
+}
+
+  .list{
+    color: $color1;
+  }
 
 .mywandrlst{
-  width: 50%;
-  height: 200px;
+  width: 20%;
+  height: 1000px;
   position: absolute;
   top: 0;
-  right: 5px;
+  right: 0px;
+
 }
 
 #draggable { background: #444; }
@@ -56,6 +114,7 @@ h1{
 }
 h2{
   font-family: $font1;
+  color: $color1;
 }
 h3{
   font-family: $font2; 
@@ -207,6 +266,10 @@ form{
 #map { height: 180px; }
 
 li{
+
+ /* height: 100px;
+  width: 100px;*/
+
   display: inline-block;
   border: solid 1px black;
   margin: 5px;

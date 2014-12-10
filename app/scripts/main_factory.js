@@ -9,7 +9,13 @@
 	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
      var savedUrl = ' https://api.parse.com/1/classes/saved';
   
- 
+     var greet = ['hola', 'bonjôur ','cia ', 'Γειά ', 'hola ','aloha ', 'konichiwa ', '你好 ','mirëdita ', 'guten tag ', 'नमस्ते ', 'shalom', 'hej', 'namaste','ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', 'živjo', 'வணக்கம்' ];
+     var hello=  function(){
+
+    var item = greet[Math.floor(Math.random()*greet.length)];
+      $(this).html( "<h1 id='title'>"+ item + "</h1>");
+    };
+    $('#title').on('click', hello);
   
 
    
@@ -55,7 +61,7 @@
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
 			});
-     
+     $('#listF')[0].reset();
 		};
 
 		

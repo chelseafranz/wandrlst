@@ -4,6 +4,14 @@
       //$scope.user = UserFactory.currentUser();
      // console.log($scope.user.objectId);
 
+     var greet = ['hola', 'bonjôur ','cia ', 'Γειά ', 'hola ','aloha ', 'konichiwa ', '你好 ','mirëdita ', 'guten tag ', 'नमस्ते ', 'shalom', 'hej', 'namaste','ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', 'živjo' ];
+     var hello=  function(){
+
+  var item = greet[Math.floor(Math.random()*greet.length)];
+    $(this).html( "<h1 id='title'>"+ item + "</h1>");
+  };
+  $('#title').on('click', hello);
+
 
   		$scope.addUser= function(user){
   			UserFactory.register(user);

@@ -1,19 +1,23 @@
-<div class="image-gradient-dynamic">
+<!-- <div class="image-gradient-dynamic">
   <img src="https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/y1CHLszmz5KQlKd/3178110524_e8ae185fdb_o.jpg" alt="">
-  <div class="overlay"></div>
-
+  <div class="overlay"></div> -->
+       <div class="topBar">
+      <h1 id="title">Wandrlst</h1>
+        </div>
+      <h2 id="subtitle">Think global. Go local.</h2>
 
 
 
   <div class="copy">
-          <div class="usersStuff" ng-controller="UserController">
-    <form id="userForm" ng-submit="login(user)">
+        <div class="usersStuff">
+    <form id="userForm" >
         <input type="text" ng-model="user.username" placeholder="enter username"></input>
         <input type="password" ng-model="user.password" placeholder="password"></input>
-        <button >Login</button>
+        <button class="start login"ng-click="login(user)" >login</button>
+        <button class="start register"ng-click="addUser(user)">sign up</button>
     </form>
-    <button ng-click="addUser(user)">Register</button>
+    
     </div>
-    <p>Explore like a local.</p>
+    
   </div>
 </div>

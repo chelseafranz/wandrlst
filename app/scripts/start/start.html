@@ -36,19 +36,19 @@
   </div>
 </div> <!-- end modal -->
 
-<h3>Search for a City..</h3>
+<h2 class="searchForCity">Search for a City..</h2>
 <input ng-model="search.$"> <br>
 
         <li class="mainList" ng-repeat="city in cities |filter:search" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
             
-            <span  >
+            <span class="cityList">
                 {{city.name}}  |  {{city.country}}
             </span>
         </li>
         <hr/>
 </div>
 
-<a href='#' id='geolocate' class='ui-button'>Find me</a>
+<!-- <a href='#' id='geolocate' class='ui-button'>Find me</a> -->
 
 <div id='map'></div>
 
