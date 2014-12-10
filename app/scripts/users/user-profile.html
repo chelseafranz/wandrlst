@@ -1,5 +1,5 @@
 <img id="userImage" src= "{{user.image.url}}"/> </br>
-{{user.username}} | location: {{user.location}} | favorite place to wander: {{user.wander}}
+{{user.username}} | hometown: {{user.hometown}} | location: {{user.location}} | favorite place to wander: {{user.wander}}
 
 
 
@@ -20,6 +20,7 @@
       <h3>{{user.username}}</h3>
 
 <form ng-submit="editUserProfile(user)">
+<input type="text" ng-model="user.hometown" placeholder="hometown"></input>
 <input type="text" ng-model="user.location" placeholder="current location"></input>
 <input type="text" ng-model="user.wander" placeholder="favorite palce to wander"></input>
 <br>
@@ -38,6 +39,6 @@
 </div> <!-- end modal -->
 
 <ul ng-repeat="saved in saved">
-{{saved.title}}
+<div id="savedList">{{saved.title}}</div>
 </ul>
 

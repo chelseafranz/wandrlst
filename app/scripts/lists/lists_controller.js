@@ -16,6 +16,12 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 		$scope.dateShow= false;
 		$scope.brunchShow= false;
 
+// $( "#resizable" ).resizable({
+//       maxHeight: 250,
+//       maxWidth: 350,
+//       minHeight: 150,
+//       minWidth: 200
+//     });
 	
 	$( ".lists" ).draggable({ addClasses: true});
 	$( ".tips" ).draggable({ addClasses: true });

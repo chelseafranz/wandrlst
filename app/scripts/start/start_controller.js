@@ -75,20 +75,6 @@ var query = '?'+'where={"userName":"'+currentUser+'"}';
         });
       };
 
-      
-     //  $scope.getUserProfile= function(user){
-     //     return $http.get(userUrl+ userID, user, PARSE_HEADERS)
-     //  };
-
-     // $scope.getUserProfile().success(function(){
-     // 	  console.log('got user info')
-     //      $scope.users= results.data
-       
-
-     // });
-
-
-
 
 ////////////////////////////////////////////// mapbox
     var token= L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbHNlYWZyYW56MyIsImEiOiItY01TaEpJIn0.JaYH9lRg1C_GmkfW0jtAXQ';
@@ -97,17 +83,15 @@ var query = '?'+'where={"userName":"'+currentUser+'"}';
 			// 	position: 'bottomleft'
 			// 	}
 			});		
+  map.scrollWheelZoom.disable();
+
 	var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-  				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+  				// attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
 		}).addTo(map);
 
 	var geocoder = L.mapbox.geocoder('mapbox.places-v1');
 			
-			$('#searchForm').on('submit', function(){
-				var search=$('#search').val();
-			console.log(search);
-			geocoder.query(search, showMap);
-			});
+		
 
 			function showMap(err, data) {
 			    if (data.lbounds) {
@@ -127,7 +111,7 @@ var query = '?'+'where={"userName":"'+currentUser+'"}';
 		});
 
 
-var geolocate = document.getElementById('geolocate');
+// var geolocate = document.getElementById('geolocate');
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
 if (!navigator.geolocation) {
@@ -138,7 +122,7 @@ if (!navigator.geolocation) {
         e.stopPropagation();
         map.locate();
     };
-}
+};
 
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
@@ -163,34 +147,7 @@ map.on('locationfound', function(e) {
 });
 
 
-	// $('#addMarker').on('submit', function(){
-	// 	var add=$('#text').val();
-	// 	console.log(add);
-	// 	addMarker.addTo(map);
 
-	$('#addMarker').on('submit', function(c) {
-		alert(c.latlng);
-			});
-	//});
-
-
-	var addMarker= L.mapbox.featureLayer({
-    type: 'Feature',
-    geometry: {
-        type: 'Point',
-        // coordinates here are in longitude, latitude order because
-        coordinates: [
-           115.129080, -8.324289
-        ]
-    },
-    properties: {
-        title: '{{city.name}}, {{city.country}}',
-        description: '1718 14th St NW, Washington, DC',
-        'marker-size': 'small',
-        'marker-color': '#35333D',
-        'marker-symbol': ''
-    }
-});
 
 
 
