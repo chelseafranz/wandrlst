@@ -13,9 +13,7 @@
           $scope.cities = data.results;
         });
 
-  // MainFactory.getSaveList().success( function(data){
-  //     $scope.saved= data.results;
-  //     });
+
    var getSaveList= function(data){
 var query = '?'+'where={"userName":"'+currentUser+'"}';
         $http.get(savedUrl, PARSE_HEADERS).success(function(data){

@@ -43,7 +43,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 		saved.city= country[0].city;
 		saved.title= li.draggable[0].innerText;
 		saved.user= $scope.user.username;
-		MainFactory.saveList(saved, user);
+		MainFactory.saveList(saved);
 
 	});
 	
