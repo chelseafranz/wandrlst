@@ -38,9 +38,10 @@
   </div>
 </div> <!-- end modal -->
 
-<ul ng-repeat="saved in saved">
-<div id="savedList">{{saved.title}}</div>
-<div id="savedList" class="city">{{saved.city}}</div>
+<ul ng-repeat="saved in saved" class="savedThings">
+<div id="savedList">{{saved.title}} |
+<span class="city">{{saved.city}}</span>
+</div>
 </ul>
 
 
