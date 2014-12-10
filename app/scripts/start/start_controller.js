@@ -3,24 +3,27 @@
 	.controller( 'StartController', ['$scope', 'uiGmapGoogleMapApi', '$location', '$http', 'PARSE_HEADERS', 'MainFactory','$routeParams','$cookieStore', 'UserFactory','SaveFactory', function($scope, uiGmapGoogleMapApi, $location, $http, PARSE_HEADERS, MainFactory, $routeParams, $cookieStore, UserFactory, SaveFactory ){
 
 		var userUrl = ' https://api.parse.com/1/users/';
+    var savedUrl = ' https://api.parse.com/1/classes/saved';
+
 
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
         });
 
+  // MainFactory.getSaveList().success( function(data){
+  //     $scope.saved= data.results;
+  //     });
+   var getSaveList= function(data){
+var query = '?'+'where={"userName":"'+currentUser+'"}';
+        $http.get(savedUrl, PARSE_HEADERS).success(function(data){
+          $scope.saved=data.results;
+        })
+      };
+
+      getSaveList();
 
 
-		// $scope.$watch('city.name', function (newVal) {
-  //         if (newVal) {
-  //           MainFactory.getCities(newVal.objectId).success( function (data) {
-  //             $scope.cities = data.results;
-  //           });
-
-  //         }
-  //       });
-
-
-        MainFactory.getLists().success(function(data){
+   MainFactory.getLists().success(function(data){
 			$scope.lists= data.results;
 		});
 		
@@ -28,18 +31,15 @@
 		var currentUser= UserFactory.currentUser();
 		userID= $scope.user.objectId;
 	
-
-        $scope.addSave= function(save){
-        SaveFactory.addSave(save);
-        $scope.save= save;
-        };
+   
+       
         
         var city;
         $scope.addCity = function (city) {
           MainFactory.addCity(city);
           $scope.city= city.name;
           city= city.name
-           console.log(city);
+
 		};
 
         $scope.getOneCity= function(cid){

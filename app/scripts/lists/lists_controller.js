@@ -9,7 +9,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 	$scope.user = UserFactory.currentUser();
 	currentUser=UserFactory.currentUser();
 	userID= $scope.user.objectId;
-	console.log(userID);
+	
 
 		$scope.tipsShow= false;
 		$scope.listShow= false;
@@ -33,6 +33,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 		saved.push(li.draggable[0].id);
 		//saved.push(li.draggable[0].id);
 		//saved.push(li.draggable[0].innerText);
+
 		saved.title= li.draggable[0].innerText;
 		console.log(saved.title);
 		saved.user= $scope.user.username;
@@ -41,7 +42,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 	});
 	
 
-
+	
 
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){

@@ -10,6 +10,7 @@
      var savedUrl = ' https://api.parse.com/1/classes/saved';
   
  
+  
 
    
         var getCities = function () {
@@ -86,13 +87,16 @@
 
     
          var saveList= function(save){ 
-          console.log(save);
           var newSave = {"id": save[0], "userName": save.user, "title": save.title};
-          console.log(newSave);
         $http.post(savedUrl, newSave, PARSE_HEADERS)
         .success(function(){          
           console.log('saved info');
         });
+      };
+
+      var getSaveList= function(){
+//var query = '?'+'where={"userName":"'+username+'"}';
+        $http.get(savedUrl, PARSE_HEADERS);
       };
 
      
@@ -113,7 +117,8 @@
             listsByCity : listsByCity,
             datesByCity : datesByCity,
             brunchsByCity : brunchsByCity,
-            saveList : saveList
+            saveList : saveList,
+            getSaveList : getSaveList
         };
 }]);
 
