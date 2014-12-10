@@ -37,25 +37,29 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 
 	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
 		saved.push(li.draggable[0].id);
+		console.log(li.draggable);
 		//saved.push(li.draggable[0].id);
 		//saved.push(li.draggable[0].innerText);
-
+		saved.city= country[0].city;
 		saved.title= li.draggable[0].innerText;
-		console.log(saved.title);
 		saved.user= $scope.user.username;
 		MainFactory.saveList(saved, user);
-		console.log(saved);
+
 	});
 	
 
-	
+	var country;
 
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
 	        $scope.city=data;
+	        // console.log(data);
+	        country=data;
+	        console.log(country);
 	        
 	        MainFactory.tipsByCity(data.name).success(function(data){
 	        	$scope.tips=data.results;
+	        	country=data.results;
 	        });
 	        MainFactory.listsByCity(data.name).success(function(data){
 	        	$scope.lists=data.results;

@@ -87,7 +87,7 @@
 
     
          var saveList= function(save){ 
-          var newSave = {"id": save[0], "userName": save.user, "title": save.title};
+          var newSave = {"id": save[0], "userName": save.user, "title": save.title, "city": save.city};
         $http.post(savedUrl, newSave, PARSE_HEADERS)
         .success(function(){          
           console.log('saved info');
