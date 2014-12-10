@@ -59,7 +59,7 @@
 }());
 	 
 (function  () {
-	angular.module('WanderMod').factory( 'MainFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$routeParams','$cookieStore',function ($http, PARSE_HEADERS, PARSE_URI, $routeParams, $cookieStore){
+	angular.module('WanderMod').factory( 'MainFactory', ['$http', 'PARSE_HEADERS', 'PARSE_URI','$routeParams','$cookieStore', function ($http, PARSE_HEADERS, PARSE_URI, $routeParams, $cookieStore){
 		
 		var url= 'https://api.parse.com/1/classes/Cities/';
 		var userUrl = ' https://api.parse.com/1/users/';
@@ -67,7 +67,12 @@
         var tipsUrl= 'https://api.parse.com/1/classes/tips/';
         var dateUrl= 'https://api.parse.com/1/classes/date/';
 	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
+     var savedUrl = ' https://api.parse.com/1/classes/saved';
+  
+ 
+  
 
+   
         var getCities = function () {
           return $http.get(url, PARSE_HEADERS);
         };
@@ -110,7 +115,7 @@
 		$http.post(listUrl, list, PARSE_HEADERS).success(function(){
 			console.log('successfully added');
 			});
-        //$('#bars')[0].reset();
+     $('#listF')[0].reset();
 		};
 
 		
@@ -122,7 +127,7 @@
         $http.post(tipsUrl, tip, PARSE_HEADERS).success(function(){
             console.log('successfully added a tip'); 
         });
-         //$('#tips')[0].reset();
+         $('#tipsF')[0].reset();
         };
 
         
@@ -130,20 +135,32 @@
         $http.post(dateUrl, date, PARSE_HEADERS).success(function(){
             console.log('successfully added a date');
         });
-        //$('#date')[0].reset();
+       $('#dateF')[0].reset();
         };
 
         var addBrunch = function(brunch){
         $http.post(brunchUrl, brunch, PARSE_HEADERS).success(function(){
             console.log('successfully added a brunch');
           });
-        //$('#brunch')[0].reset();
+        $('#brunchF')[0].reset();
         };
 
+    
+         var saveList= function(save){ 
+          var newSave = {"id": save[0], "userName": save.user, "title": save.title, "city": save.city};
+        $http.post(savedUrl, newSave, PARSE_HEADERS)
+        .success(function(){          
+          console.log('saved info');
+        });
+      };
 
+      var getSaveList= function(){
+//var query = '?'+'where={"userName":"'+username+'"}';
+        $http.get(savedUrl, PARSE_HEADERS);
+      };
 
-
-
+     
+        
 
       
         return{
@@ -159,9 +176,9 @@
             tipsByCity : tipsByCity,
             listsByCity : listsByCity,
             datesByCity : datesByCity,
-            brunchsByCity : brunchsByCity
-
-        	
+            brunchsByCity : brunchsByCity,
+            saveList : saveList,
+            getSaveList : getSaveList
         };
 }]);
 
@@ -246,9 +263,6 @@
   		};
 
 
-
-  	
-  	
       var checkUser = function (user) {
           var user = $cookieStore.get('currentUser');
           if(user) {
@@ -265,7 +279,8 @@
           MainFactory.currentUser();
           console.log('user');
         };
-       
+
+ 
 
 
 
@@ -276,53 +291,54 @@
 	angular.module('WanderMod')
 	.controller( 'StartController', ['$scope', 'uiGmapGoogleMapApi', '$location', '$http', 'PARSE_HEADERS', 'MainFactory','$routeParams','$cookieStore', 'UserFactory','SaveFactory', function($scope, uiGmapGoogleMapApi, $location, $http, PARSE_HEADERS, MainFactory, $routeParams, $cookieStore, UserFactory, SaveFactory ){
 
+		var userUrl = ' https://api.parse.com/1/users/';
+    var savedUrl = ' https://api.parse.com/1/classes/saved';
+
+    $('.btn').on('click', function(){
+      $('.btn').addClass('animated rubberBand');
+    });
 
 		MainFactory.getCities().success( function (data) {
           $scope.cities = data.results;
         });
 
-		// $scope.$watch('city.name', function (newVal) {
-  //         if (newVal) {
-  //           MainFactory.getCities(newVal.objectId).success( function (data) {
-  //             $scope.cities = data.results;
-  //           });
+  // MainFactory.getSaveList().success( function(data){
+  //     $scope.saved= data.results;
+  //     });
+   var getSaveList= function(data){
+var query = '?'+'where={"userName":"'+currentUser+'"}';
+        $http.get(savedUrl, PARSE_HEADERS).success(function(data){
+          $scope.saved=data.results;
+        })
+      };
 
-  //         }
-  //       });
+      getSaveList();
 
 
-        MainFactory.getLists().success(function(data){
+   MainFactory.getLists().success(function(data){
 			$scope.lists= data.results;
 		});
 		
 		$scope.user = UserFactory.currentUser();
+		var currentUser= UserFactory.currentUser();
 		userID= $scope.user.objectId;
 	
-        $scope.userProfile= function  (user) {
-        	UserFactory.getUserProfile
-         return $cookieStore.get('currentUser');
-         
-        };
-
-        $scope.addSave= function(save){
-        SaveFactory.addSave(save);
-        $scope.save= save;
-        };
+   
+       
         
-
+        var city;
         $scope.addCity = function (city) {
           MainFactory.addCity(city);
           $scope.city= city.name;
-           console.log(city);
-        };
+          city= city.name
+
+		};
 
         $scope.getOneCity= function(cid){
         	$location.path('/city/' + cid);
         	console.log(cid);
         };
 
-        
-        
 		$scope.deleteCity=function(cID, index){
 		MainFactory.deleteCity(cID).success( function () {
             $scope.cities.splice(index, 1);		
@@ -340,56 +356,158 @@
     		$location.path('/users/'+ userID);
     	};
 
-    	$('#map_canvas').gmap();
+    	$scope.editUserProfile= function(user){
+        	userID= $scope.user.objectId;
+        $http.put(userUrl+ userID, user, {headers:{
+                'X-Parse-Application-Id': 'iVBIZ8aBC1T1zcCOWvAc7AXDisgspY3S41YdI67u', 
+                  'X-Parse-REST-API-Key': '0fc6LBtsQvnM1PuNQR5Tz8YKoP1Vt9kSbEHCKSvM', 
+                'X-Parse-Session-Token': currentUser.sessionToken, }})
+        .success(function(){
+          console.log('updated info')
+        });
+      };
 
-			// uiGmapGoogleMapApi.then(function(maps){
-			// 	$('#map_canvas').gmap({ 'center': new google.maps.LatLng(42.345573,-71.098326), 'callback': function() {
-   //     		 $('#map_canvas').gmap('addMarker', { 'position': new google.maps.LatLng(42.345573,-71.098326) } );
-			// 	}});
 
-			// });
+////////////////////////////////////////////// mapbox
+    var token= L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbHNlYWZyYW56MyIsImEiOiItY01TaEpJIn0.JaYH9lRg1C_GmkfW0jtAXQ';
+	var map= L.mapbox.map('map', 'chelseafranz3.kb224fb8'	, {
+			// legendControl: {
+			// 	position: 'bottomleft'
+			// 	}
+			});		
+  map.scrollWheelZoom.disable();
 
+	var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+  				// attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+		}).addTo(map);
+
+	var geocoder = L.mapbox.geocoder('mapbox.places-v1');
 			
+		
+
+			function showMap(err, data) {
+			    if (data.lbounds) {
+			        map.fitBounds(data.lbounds);
+			    } else if (data.latlng) {
+			        map.setView([data.latlng[0], data.latlng[1]], 13);
+			    }
+			};
+
+	map.addControl(L.mapbox.geocoderControl('mapbox.places-v1'), {
+		autocomplete: true,
+		 keepOpen: true
+	});
+
+	map.on('click', function(e) {
+	alert(e.latlng);
+		});
+
+
+// var geolocate = document.getElementById('geolocate');
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+if (!navigator.geolocation) {
+    geolocate.innerHTML = 'Geolocation is not available';
+} else {
+    geolocate.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+};
+
+// Once we've got a position, zoom and center the map
+// on it, and add a single marker.
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+            'title': 'Here I am!',
+            'marker-color': '#ff8888',
+            'marker-symbol': ''
+        }
+    });
+
+    // And hide the geolocation button
+    geolocate.parentNode.removeChild(geolocate);
+});
+
+
+
+
+
 
 	}]); //end controller
 
 }());
 (function  () {
 
-	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory){
+	angular.module('WanderMod').controller('ListController', ['$scope','PARSE_HEADERS','PARSE_URI', '$location','MainFactory','$routeParams', 'UserFactory','$cookieStore', '$http',function($scope, PARSE_HEADERS, PARSE_URI, $location, MainFactory, $routeParams, UserFactory, $cookieStore, $http){
 		var list;
 
-		var addSave= function  (save, u) {
-			console.log(u);
-			SaveFactory.addSave(save);
-		};
+var userUrl = ' https://api.parse.com/1/users/';
+var savedUrl = ' https://api.parse.com/1/classes/saved';
 	
 	$scope.user = UserFactory.currentUser();
+	currentUser=UserFactory.currentUser();
 	userID= $scope.user.objectId;
-	console.log(userID);
+	
 
 		$scope.tipsShow= false;
 		$scope.listShow= false;
 		$scope.dateShow= false;
 		$scope.brunchShow= false;
 
+// $( "#resizable" ).resizable({
+//       maxHeight: 250,
+//       maxWidth: 350,
+//       minHeight: 150,
+//       minWidth: 200
+//     });
 	
 	$( ".lists" ).draggable({ addClasses: true});
 	$( ".tips" ).draggable({ addClasses: true });
 	$( ".date" ).draggable({ addClasses: true});
-	$( ".brunch" ).draggable({ addClasses: true });
-	$('li').droppable({ addClasses: true});
+	$( ".brunch" ).draggable({ addClasses: true, context: 'ul'  });
+	$('li').droppable({ addClasses: true, tolerance: 'fit', context: 'ul',  greedy: true});
 
 	$( "ul.droptrue" ).sortable({
       connectWith: "ul"
     });
 
+	var saved=[];
+
+	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
+		saved.push(li.draggable[0].id);
+		console.log(li.draggable);
+		//saved.push(li.draggable[0].id);
+		//saved.push(li.draggable[0].innerText);
+		saved.city= country[0].city;
+		saved.title= li.draggable[0].innerText;
+		saved.user= $scope.user.username;
+		MainFactory.saveList(saved, user);
+
+	});
+	
+
+	var country;
+
 		MainFactory.getOneCity($routeParams.id).
 		success(function(data){
 	        $scope.city=data;
+	        // console.log(data);
+	        country=data;
+	        console.log(country);
 	        
 	        MainFactory.tipsByCity(data.name).success(function(data){
 	        	$scope.tips=data.results;
+	        	country=data.results;
 	        });
 	        MainFactory.listsByCity(data.name).success(function(data){
 	        	$scope.lists=data.results;
@@ -499,6 +617,8 @@
     });
 
 });
+
+      $( ".mywandrlst" ).on( "drop", function( drop, ui ) {} );
 
 	
 		
