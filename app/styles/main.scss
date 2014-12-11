@@ -171,9 +171,21 @@ background-position: -9px -304px;
   position: absolute;
   top: 0;
   right: 0px;
-  background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/YlGYCyHLr2HyFOI/25.png);
+  background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/z25QamEQo5xhfVd/background.jpg);
   background-size: 150%;
+  font-family: "Futura";
+  color: black;
 
+  .listTitle{
+    font-size: 2em;
+    text-align: center;
+  }
+
+}
+.fieldNoteSub{
+  font-size: .7em;
+  text-align: center;
+  margin-top: -28px;
 }
 #selectList{
   margin-right: 0;
