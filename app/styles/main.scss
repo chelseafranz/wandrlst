@@ -88,21 +88,35 @@ background-position: top;
   margin-left: -60px;
   /*background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);*/
   background: 
-    
-    url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/z25QamEQo5xhfVd/background.jpg);
-background-size: 60%;
+    linear-gradient(
+      HSLA(161, 41%, 64%, .5), 
+      HSLA(161, 41%, 64%, .5)
+    ),
+    url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);
+background-size: 100%;
 background-attachment: fixed;
 background-position: -9px -304px;
-
+/* -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;*/
  cursor:crosshair;
-
-
+  -webkit-filter: grayscale(100%);
+}
+#compass{
+  height: 100px;
+  position: absolute;
+  top: 92px;
+left: 597px
+}
+.blue{
+  color:HSLA(165, 80%, 66%, 1);
 }
 
 .wanderdef{
   text-align: center;
   letter-spacing: 7px;
-    color: HSLA(0, 0%, 100%, .5);
+  /*  color: HSLA(0, 0%, 100%, .5);*/
+  position: absolute;
+  top: 57px;
 
 }
 
@@ -110,8 +124,10 @@ background-position: -9px -304px;
   color: HSLA(0, 0%, 100%, 1);
 }
 .wanderlist{
-  letter-spacing: 88px;
+  position: absolute;
+  letter-spacing: 80px;
   margin-left: 5px;
+  top: 0px;
 }
 
 
@@ -151,6 +167,33 @@ background-position: -9px -304px;
   font-weight: bold;
   background-color: white;
 }
+
+.profile{
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  top: 0px;
+  right: 0px;
+  background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/z25QamEQo5xhfVd/background.jpg);
+  background-size: 70%;
+  font-family: "Futura";
+  color: black; 
+  border-radius: 2px 7px 7px 2px;
+  
+}
+#userImage{
+  margin-left: 40%;
+margin-top: 10%;
+}
+
+.wandrlstprofile{
+  font-weight: 900;
+  text-align: center;
+}
+
+
+
+
 
                           /*lists page*/
 
@@ -355,15 +398,26 @@ li{
     display: none;
 
   }
-
+  .addButton{
+     margin-left: 108px;
+    margin-top: -58px;
+  }
+  button{
+    border-radius: 50%;
+  }
   .btn {
     @extend button;
     font-family: $font1;
-    padding: 2px;
-    margin-left: 108px;
-    margin-top: -58px;
-    background-color: white;
-    color: $color1;
+   
+   
+    background-color: $color1;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    color: white;
+    padding-top: 25px;
+padding-left: 16px;
+
   }
 
   .modal-open {

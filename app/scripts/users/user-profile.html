@@ -1,16 +1,13 @@
-<img id="userImage" src= "{{user.image.url}}"/> </br>
+<div class="profile">
+  <img id="userImage" src= "{{user.image.url}}"/> </br>
 {{user.username}} | hometown: {{user.hometown}} | location: {{user.location}} | favorite place to wander: {{user.wander}}
 
 
 
-<h2>Here's your profile.</h2>
-<form >
-  
-</form>
 
 <div class="modal"> <!-- modal -->
   <label for="modal-1">
-    <div class="btn js-btn">Edit Profile</div>
+    <div class="btn js-btn">profile</div>
   </label>
   <input class="modal-state" id="modal-1" type="checkbox" />
   <div class="modal-window">
@@ -37,12 +34,16 @@
     </div>
   </div>
 </div> <!-- end modal -->
+  
+  
+    <h2 class="wandrlstprofile">WANDRLST</h2>
+  <ul ng-repeat="saved in saved" class="savedThings">
+  <div id="savedList">{{saved.title}} |
+  <span class="city">{{saved.city}}</span>
+  </div>
+  </ul>
 
-<ul ng-repeat="saved in saved" class="savedThings">
-<div id="savedList">{{saved.title}} |
-<span class="city">{{saved.city}}</span>
 </div>
-</ul>
 
 
 
