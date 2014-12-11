@@ -88,16 +88,12 @@ background-position: top;
   margin-left: -60px;
   /*background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);*/
   background: 
-    linear-gradient(
-      HSLA(161, 41%, 64%, .5), 
-      HSLA(161, 41%, 64%, .5)
-    ),
-    url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);
-background-size: 100%;
+    
+    url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/z25QamEQo5xhfVd/background.jpg);
+background-size: 60%;
 background-attachment: fixed;
 background-position: -9px -304px;
-/* -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;*/
+
  cursor:crosshair;
 
 
@@ -160,25 +156,29 @@ background-position: -9px -304px;
 
 
   .list{
-    color: white;
-    background-color: HSLA(252, 9%, 22%, .8)
-
+    color: black;
+    font-family: 'Futura';
+    border: 1px solid black;
+    font-weight: lighter;
   }
 
 .mywandrlst{
-  width: 20%;
-  height: 1000px;
+  width: 300px;
+  height: 100%;
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0px;
   background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/z25QamEQo5xhfVd/background.jpg);
   background-size: 150%;
   font-family: "Futura";
   color: black;
+  
 
   .listTitle{
+    margin-top: 20px;
     font-size: 2em;
     text-align: center;
+    padding-top: 2px;
   }
 
 }
@@ -321,8 +321,15 @@ li{
   border: solid 1px gray;
   padding: 5px;
   margin: 5px;
-  float: right;
- 
+  float: left;
+  h4{
+    font-family: 'Futura';
+  }
+
+}
+
+#results{
+  width: 70%;
 }
 /*modal */
 .modal {

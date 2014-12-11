@@ -1,14 +1,14 @@
-<div class="topBar">
+<!-- <div class="topBar">
       <h1 id="title">{{city.name}}</h1>
         </div>
       <h2 id="subtitle">Get lost. Go local.</h2>	
-
+ -->
 
 <div class="demo">
 
 	<form ng-model="saved">
     <ul class= "mywandrlst" id="droppable">
-    	<p class="listTitle">{{user.username}}'s wandrlst</p>
+    	<p class="listTitle">{{city.name}} </br>wandrlst</p>
     	<p class="fieldNoteSub">48-Page Memo Book</p>
     	<p class="fieldNoteSub">Durable Materials / Made in the U.S.A.</p>
     	
@@ -19,7 +19,7 @@
 </div>
 
 <div id="inputs dropdown">
-<form id="selectList" ng-submit="chooseList()">
+<form id="selectList" >
 <select name="Choose a List">
   <option>Choose a List</option>
   <option value= "tips"id="tips">General Tips for the City</option>
@@ -27,16 +27,8 @@
   <option value= "date"id="date">Best Date Spots</option>
   <option value= "brunch"id="brunch">Best Places for Brunch</option>
   </select>
-  <button>Choose</button>
+  <a href="" ng-click="chooseList()">Choose</a>
  </form>
-
-<div id="moreCityInfo">
-<h3>City Info</h3>
-<p>getting around:</p>
-<p>alone or with a group?</p>
-</div>
-
-
 
 
 <form class="addForms" id="tipsF" ng-submit="addTip(tip, city.name)" ng-show="tipsShow" >
