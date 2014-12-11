@@ -81,26 +81,44 @@ background-position: top;
                           /*start page*/
 
 #menuBar{
+  color: white;
   width: 1300px;
   height: 200px;
   margin-top: -51px;
   margin-left: -60px;
-  background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/YlGYCyHLr2HyFOI/25.png);
-background-size: 80%;
+  /*background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);*/
+  background: 
+    linear-gradient(
+      HSLA(161, 41%, 64%, .5), 
+      HSLA(161, 41%, 64%, .5)
+    ),
+    url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);
+background-size: 100%;
 background-attachment: fixed;
-background-position: bottom;
+background-position: -9px -304px;
 /* -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;*/
  cursor:crosshair;
- width: 100%;
+
 
 }
 
-.explore{
-  color: $color1;
-  font-family: $font1;
-  text-align: right;
+.wanderdef{
+  text-align: center;
+  letter-spacing: 7px;
+    color: HSLA(0, 0%, 100%, .5);
+
 }
+
+.menuStuff{
+  color: HSLA(0, 0%, 100%, 1);
+}
+.wanderlist{
+  letter-spacing: 88px;
+  margin-left: 5px;
+}
+
+
 
 .menuButtons{
   padding: 2px;
@@ -113,9 +131,9 @@ background-position: bottom;
   border-radius: 100%;
   position: relative;
   width: 200px;
-  opacity: .45;
+  opacity: .75;
   margin-bottom: 20px;
-  -webkit-filter: grayscale(100%); 
+  -webkit-filter: grayscale(0%); 
 }
 
 .cityList{
@@ -128,7 +146,7 @@ background-position: bottom;
 #cityImage:hover{
   opacity: 1;
   transition: opacity 3s;
-  -webkit-filter: grayscale(0%); 
+  -webkit-filter: grayscale(100%); 
 }
 #city{
   font-size: 2em;
@@ -223,7 +241,7 @@ a{
   h1 {
     font-size: 60px;
     line-height: 1;
-    letter-spacing: -1px;
+    
   }
 }
 #map_canvas {

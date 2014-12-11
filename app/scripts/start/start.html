@@ -1,10 +1,9 @@
 <div id="menuBar">
- <h1>wan·der·lust:</h1>
-<h2>ˈwändərˌləst/</h2>
-<h2>a strong desire for or impulse to travel and explore the world</h2>
+ <h1 class="wanderlist">wan·der·lust</h1>
+ <h5 class="wanderdef">(ˈwändərˌləst)
+a strong desire for or impulse to travel and explore the world</h5>
   </div>
 
- <h1 class="explore">Explore</h1>
 <button class="menuButtons" ng-click="logout()">log out</button>
   <button class="menuButtons" ng-click="userProfile()">profile</button> 
 <div id="user"></div>
@@ -47,10 +46,12 @@
 <input ng-model="search.$"> <br>
 
         <li class="mainList" ng-repeat="city in cities |filter:search" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
-         <img id="cityImage" src= "{{city.image.url}}"/>
+         
             <div class="cityList">
                <span id="city"> {{city.name}} </span> |  {{city.country}}
             </div>
+
+           <!--  <img id="cityImage" src= "{{city.image.url}}"/> -->
         </li>
         <hr/>
 </div>
