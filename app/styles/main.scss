@@ -134,9 +134,12 @@ left: 597px
 
 .menuButtons{
   padding: 2px;
-  background-color: white;
-  color: $color1;
+  background-color: $color1;
+  color: white;
+  height: 75px;
+  width: 75px;
   font-family: $font1;
+  border-radius: 50%;
 }
 
 #cityImage{
@@ -222,8 +225,13 @@ margin-top: 10%;
     font-size: 2em;
     text-align: center;
     padding-top: 2px;
+    font-weight: bold;
   }
 
+}
+
+.cityName{
+  font-size: 50px;
 }
 .fieldNoteSub{
   font-size: .7em;
@@ -399,8 +407,9 @@ li{
 
   }
   .addButton{
-     margin-left: 108px;
-    margin-top: -58px;
+    margin-left: 160px;
+    margin-top: -110px;
+
   }
   button{
     border-radius: 50%;
@@ -408,10 +417,9 @@ li{
   .btn {
     @extend button;
     font-family: $font1;
-   
-   
+  
     background-color: $color1;
-    border-radius: 50%;
+ /*   border-radius: 50%;*/
     height: 75px;
     width: 75px;
     color: white;
