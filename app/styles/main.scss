@@ -69,23 +69,55 @@ background-position: top;
   border-radius: 100%;
   height: 80px;
   width: 80px;
+  background-color: $color1;
 }
 .login{
   float: left;
   border-radius: 100%;
   height: 80px;
   width: 80px;
+  background-color: $color1;
 }
-.mainList:hover{
- 
-  transition: background-color 2s;
+                          /*start page*/
+
+#menuBar{
+  width: 1300px;
+  height: 200px;
+  margin-top: -51px;
+  margin-left: -60px;
+  background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/YlGYCyHLr2HyFOI/25.png);
+background-size: 80%;
+background-attachment: fixed;
+background-position: bottom;
+/* -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;*/
+ cursor:crosshair;
+ width: 100%;
+
 }
+
+.explore{
+  color: $color1;
+  font-family: $font1;
+  text-align: right;
+}
+
+.menuButtons{
+  padding: 2px;
+  background-color: white;
+  color: $color1;
+  font-family: $font1;
+}
+
 #cityImage{
+  border-radius: 100%;
   position: relative;
   width: 200px;
-  opacity: .35;
+  opacity: .45;
   margin-bottom: 20px;
+  -webkit-filter: grayscale(100%); 
 }
+
 .cityList{
   color: black;
 
@@ -96,6 +128,7 @@ background-position: top;
 #cityImage:hover{
   opacity: 1;
   transition: opacity 3s;
+  -webkit-filter: grayscale(0%); 
 }
 #city{
   font-size: 2em;
@@ -104,6 +137,9 @@ background-position: top;
   font-weight: bold;
   background-color: white;
 }
+
+                          /*lists page*/
+
 
   .list{
     color: white;
@@ -117,6 +153,8 @@ background-position: top;
   position: absolute;
   top: 0;
   right: 0px;
+  background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/YlGYCyHLr2HyFOI/25.png);
+  background-size: 150%;
 
 }
 #selectList{
@@ -125,7 +163,7 @@ background-position: top;
 }
 
 #draggable { background: #444; }
-#droppable { background: #444; }
+/*#droppable { background: #444; }*/
 
 .body{
 /*  border: solid 1px gray;
@@ -164,9 +202,8 @@ h5{
   font-family: $font2;
 }
 
-button{
-  background-color: $color1;
-  font-family: $font2
+button:hover{
+  background-color: HSLA(336, 54%, 56%, 1);
 }
 
 a{
@@ -220,71 +257,6 @@ a{
   padding-top: .3em;
 }
 
-.image-gradient-dynamic {
-  $image-gradient-color-top: gray; 
-  $transparency-top: .9;
-  $image-gradient-color-bottom: white; 
-  $transparency-bottom: .6;
-  $vertical-angle: 0deg;
-
-  $image-gradient-color-left: gray; 
-  $transparency-left: .8;
-  $image-gradient-color-right: white; 
-  $transparency-right: .8;
-  $horizontal-angle: 90deg;
-
-  position: relative;
-  z-index: 0;
-  margin-top: -110px;
-  line-height: 0;
-  width: 100%;
-  margin-bottom: $base-line-height;  
-
-  img {
-   width: 100%;
-   height: auto;
-   position: relative;
-   top: 0;
-   left: 0; 
-  }
-
-  .copy {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: auto;
-    z-index: 999;
-    text-align: center;
-    @include transform(translate(-50%, -50%));
-
-    p {
-      line-height: 1.5em;
-      padding: 1em 2em;
-      position: relative;
-      color: white;
-      font-weight: 800;
-    }
-  }
-
-  .overlay {
-    @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top), 
-      transparentize($image-gradient-color-bottom, $transparency-bottom));
-    display: block;
-    @include position(absolute, 0px 0px 0px 0px);
-
-    &:after {
-      content: '';
-      @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left), 
-        transparentize($image-gradient-color-right, $transparency-right));
-      display: block;
-      @include position(absolute, 0px 0px 0px 0px);
-    }
-  }
-}
-.angular-google-map-container{
-  height: 400px;
-  width:100% ;
-}
 
 .menu{
   float: left;
@@ -304,10 +276,6 @@ form{
 #map { height: 180px; }
 
 li{
-
- /* height: 100px;
-  width: 100px;*/
-
   display: inline-block;
   margin: 5px;
   padding: 2px 5px;
@@ -353,7 +321,12 @@ li{
 
   .btn {
     @extend button;
-    font-family: $font2;
+    font-family: $font1;
+    padding: 2px;
+    margin-left: 108px;
+    margin-top: -58px;
+    background-color: white;
+    color: $color1;
   }
 
   .modal-open {
@@ -380,7 +353,7 @@ li{
     @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
     @include size(1.5em);
     cursor: pointer;
-    background: HSLA(252, 9%, 22%, .7);;
+    background: white;
 
     &:after,
     &:before {
@@ -500,11 +473,11 @@ left: 141px;
   border-radius:3px;
   background-color: $color1;
   }
-  .ui-button:hover {
+  /*.ui-button:hover {
     background:#3074a4;
     color:#fff;
     }
-
+*/
 .leaflet-container{
   height: 470px;
 }

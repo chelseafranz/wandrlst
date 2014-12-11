@@ -1,15 +1,14 @@
+<div id="menuBar">
+ <h1>wan·der·lust:</h1>
+<h2>ˈwändərˌləst/</h2>
+<h2>a strong desire for or impulse to travel and explore the world</h2>
+  </div>
 
-<h1>Explore</h1>
-
+ <h1 class="explore">Explore</h1>
+<button class="menuButtons" ng-click="logout()">log out</button>
+  <button class="menuButtons" ng-click="userProfile()">profile</button> 
 <div id="user"></div>
 
-<button ng-click="logout()">log out</button>
-<button ng-click="userProfile()">Profile</button> 
-
-
-    <div class="container">
-    {{title}}
-    <ul>
 
 <div class="modal"> <!-- modal -->
   <label for="modal-1">
@@ -36,6 +35,13 @@
     </div>
   </div>
 </div> <!-- end modal -->
+
+
+
+    <div class="container">
+    {{title}}
+    <ul>
+
 
 <h2 class="searchForCity">Search for a City..</h2>
 <input ng-model="search.$"> <br>
