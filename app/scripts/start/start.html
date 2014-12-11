@@ -1,3 +1,4 @@
+
 <h1>Explore</h1>
 
 <div id="user"></div>
@@ -40,10 +41,10 @@
 <input ng-model="search.$"> <br>
 
         <li class="mainList" ng-repeat="city in cities |filter:search" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
-            
-            <span class="cityList">
-                {{city.name}}  |  {{city.country}}
-            </span>
+         <img id="cityImage" src= "{{city.image.url}}"/>
+            <div class="cityList">
+               <span id="city"> {{city.name}} </span> |  {{city.country}}
+            </div>
         </li>
         <hr/>
 </div>
