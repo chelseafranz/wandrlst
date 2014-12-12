@@ -46,8 +46,9 @@ a strong <span class="blue">desire</span> for or <span class="blue">impulse</spa
     <ul>
 
 
-<h2 class="searchForCity">Search for a City..</h2>
-<input ng-model="search.$"> <br>
+<span class="searchForCity">search
+<input id='searchForCity' ng-model="search.$"> <br>
+</span>
 
         <li class="mainList" ng-repeat="city in cities |filter:search" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
          
