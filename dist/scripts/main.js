@@ -69,7 +69,13 @@
 	   var brunchUrl= 'https://api.parse.com/1/classes/brunch/';
      var savedUrl = ' https://api.parse.com/1/classes/saved';
   
- 
+     var greet = ['hola', 'bonjôur ','cia ', 'Γειά ', 'hola ','aloha ', 'konichiwa ', '你好 ','mirëdita ', 'guten tag ', 'नमस्ते ', 'shalom', 'hej', 'namaste','ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', 'živjo', 'வணக்கம்' ];
+     var hello=  function(){
+
+    var item = greet[Math.floor(Math.random()*greet.length)];
+      $(this).html( "<h1 id='title'>"+ item + "</h1>");
+    };
+    $('#title').on('click', hello);
   
 
    
@@ -251,6 +257,14 @@
       //$scope.user = UserFactory.currentUser();
      // console.log($scope.user.objectId);
 
+     var greet = ['hola', 'bonjôur ','cia ', 'Γειά ', 'hola ','aloha ', 'konichiwa ', '你好 ','mirëdita ', 'guten tag ', 'नमस्ते ', 'shalom', 'hej', 'namaste','ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', 'živjo' ];
+     var hello=  function(){
+
+  var item = greet[Math.floor(Math.random()*greet.length)];
+    $(this).html( "<h1 id='title'>"+ item + "</h1>");
+  };
+  $('#title').on('click', hello);
+
 
   		$scope.addUser= function(user){
   			UserFactory.register(user);
@@ -302,9 +316,7 @@
           $scope.cities = data.results;
         });
 
-  // MainFactory.getSaveList().success( function(data){
-  //     $scope.saved= data.results;
-  //     });
+
    var getSaveList= function(data){
 var query = '?'+'where={"userName":"'+currentUser+'"}';
         $http.get(savedUrl, PARSE_HEADERS).success(function(data){
@@ -406,37 +418,37 @@ var query = '?'+'where={"userName":"'+currentUser+'"}';
 // var geolocate = document.getElementById('geolocate');
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-if (!navigator.geolocation) {
-    geolocate.innerHTML = 'Geolocation is not available';
-} else {
-    geolocate.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.locate();
-    };
-};
+// if (!navigator.geolocation) {
+//     geolocate.innerHTML = 'Geolocation is not available';
+// } else {
+//     geolocate.onclick = function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         map.locate();
+//     };
+// };
 
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
-map.on('locationfound', function(e) {
-    map.fitBounds(e.bounds);
+// map.on('locationfound', function(e) {
+//     map.fitBounds(e.bounds);
 
-    myLayer.setGeoJSON({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [e.latlng.lng, e.latlng.lat]
-        },
-        properties: {
-            'title': 'Here I am!',
-            'marker-color': '#ff8888',
-            'marker-symbol': ''
-        }
-    });
+//     myLayer.setGeoJSON({
+//         type: 'Feature',
+//         geometry: {
+//             type: 'Point',
+//             coordinates: [e.latlng.lng, e.latlng.lat]
+//         },
+//         properties: {
+//             'title': 'Here I am!',
+//             'marker-color': '#ff8888',
+//             'marker-symbol': ''
+//         }
+//     });
 
-    // And hide the geolocation button
-    geolocate.parentNode.removeChild(geolocate);
-});
+//     // And hide the geolocation button
+//     geolocate.parentNode.removeChild(geolocate);
+// });
 
 
 
@@ -489,9 +501,10 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 		//saved.push(li.draggable[0].id);
 		//saved.push(li.draggable[0].innerText);
 		saved.city= country[0].city;
+		console.log(country[0].city);
 		saved.title= li.draggable[0].innerText;
 		saved.user= $scope.user.username;
-		MainFactory.saveList(saved, user);
+		MainFactory.saveList(saved);
 
 	});
 	
