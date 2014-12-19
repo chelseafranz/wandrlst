@@ -1,0 +1,83 @@
+<div id="menuBar">
+ </div>
+  <h1 class="wanderlist">wan·der·lust</h1>
+   <h5 class="wanderdef">(ˈwändərˌləst)
+a strong <span class="blue">desire</span> for or <span class="blue">impulse</span> to travel and <span class="blue">explore</span> the world</h5>
+
+<img id="compass" src="https://s3.amazonaws.com/uploads.hipchat.com/31349/1239536/1d3dSMdTFP7MkZb/compass-01.png"/>
+
+
+  <button class="menuButtons" ng-click="userProfile()"><span class="entypo-user"></span></button> 
+
+  <button class="menuButtons" ng-click="logout()"><span class="entypo-logout"></span></button>
+
+
+
+<div class="modal"> <!-- modal -->
+  <label for="modal-1">
+    <div class="btn js-btn addButton"><span class="entypo-list-add"></span></div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal-1"></label>
+    <h4>Add to the Wandrlst</h4>
+      <h4>{{city.name}} | {{city.country}}</h4>
+
+      <form id='addForm' ng-submit='addCity(city)'>
+      <div class="body">
+        <input type="text" ng-model="city.name" placeholder="name"></input>
+      </div>
+      <div class="body">
+        <input type="text" ng-model="city.country" placeholder="country"></input>
+      </div>
+<button>Add</button>
+       </form>
+
+
+    </div>
+  </div>
+</div> <!-- end modal -->
+
+
+
+    <div class="container">
+    {{title}}
+    <ul>
+
+
+<span class="searchForCity">search
+<input id='searchForCity' ng-model="search.$"> <br>
+</span>
+
+        <li class="mainList" ng-repeat="city in cities |filter:search" id="{{city.objectId}}" ng-click="getOneCity(city.objectId)">
+         
+            <div class="cityList">
+               <span id="city"> {{city.name}} </span> |  {{city.country}}
+            </div>
+
+           <!--  <img id="cityImage" src= "{{city.image.url}}"/> -->
+        </li>
+        <hr/>
+</div>
+
+<!-- <a href='#' id='geolocate' class='ui-button'>Find me</a> -->
+
+<div id='map'></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
