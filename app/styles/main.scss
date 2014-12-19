@@ -43,12 +43,12 @@ height: 350px;
 display: inline-block;
 letter-spacing: -13px;
 display: inline-block;
-margin-top: 200px;
+margin-top: 70px;
 color: black;
 background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/F95YhSan5HJ2EH5/8346095057_b3d59e5548_o_%281%29.jpg);
 background-size: 70%;
 background-attachment: fixed;
-background-position: 261px 148px;
+background-position: 422px 104px;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 cursor: crosshair;
@@ -91,10 +91,10 @@ width: 100%;
 
 #menuBar{
   color: white;
-  width: 100%;
+  width: 115%;
   height: 200px;
   margin-top: -51px;
-  margin-left: 0px;
+  margin-left: -60px;
   /*background: url(https://s3.amazonaws.com/uploads.hipchat.com/31349/1240363/zU77rhGghjRseW2/5825408292_11759e3304_o%20%281%29.jpg);*/
   background: 
     linear-gradient(
@@ -113,8 +113,9 @@ background-position: -9px -304px;
 #compass{
  height: 100px;
 position: absolute;
-top: 8%;
+top: 15%;
 left: 50%;
+display: none;
 }
 
 .blue{
@@ -126,8 +127,8 @@ left: 50%;
   letter-spacing: 7px;
   /*  color: HSLA(0, 0%, 100%, .5);*/
   position: absolute;
-  top: 57px;
-  left: 21%;
+  top: 87px;
+  left: 2%;
 
 }
 
@@ -137,9 +138,9 @@ left: 50%;
 .wanderlist{
  text-align: center;
 position: absolute;
-letter-spacing: 80px;
-top: 0px;
-left: 21%;
+letter-spacing: 75px;
+top: 30px;
+
 }
 
 
@@ -437,7 +438,7 @@ li{
   .edit{
     position: absolute;
     top: 56px;
-left: 222px;
+left: 156px;
 
   }
   .addButton{
