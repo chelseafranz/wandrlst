@@ -1,0 +1,49 @@
+<div class="profile">
+  <img id="userImage" src= "{{user.image.url}}"/> </br>
+{{user.username}} | hometown: {{user.hometown}} | location: {{user.location}} | favorite place to wander: {{user.wander}}
+
+
+
+
+<div class="modal"> <!-- modal -->
+  <label for="modal-1">
+    <div class="btn js-btn edit"><span class="entypo-pencil"></span></div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-window">
+    <div class="modal-inner">
+      <label class="modal-close" for="modal-1"></label>
+    <h4>Edit Your Profile</h4>
+      <h3>{{user.username}}</h3>
+
+<form ng-submit="editUserProfile(user)">
+<input type="text" ng-model="user.hometown" placeholder="hometown"></input>
+<input type="text" ng-model="user.location" placeholder="current location"></input>
+<input type="text" ng-model="user.wander" placeholder="favorite palce to wander"></input>
+<br>
+<input ng-model="user.image" type="file" name="pic" accept="image/*">
+<button>edit</button>
+</form>
+
+<div id='map'></div>
+<form id="addMarker">
+<input id="text" type="text"></input>
+<button>add</button>
+</form>
+<a href='#' id='geolocate' class='ui-button locateButton'>Find me</a>
+    </div>
+  </div>
+</div> <!-- end modal -->
+  
+  
+    <h2 class="wandrlstprofile">WANDRLST</h2>
+  <ul ng-repeat="saved in saved" class="savedThings">
+  <div id="savedList">{{saved.title}} |
+  <span class="city">{{saved.city}}</span>
+  </div>
+  </ul>
+
+</div>
+
+
+

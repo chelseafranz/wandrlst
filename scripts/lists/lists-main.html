@@ -1,0 +1,104 @@
+<!-- <div class="topBar">
+      <h1 id="title">{{city.name}}</h1>
+        </div>
+      <h2 id="subtitle">Get lost. Go local.</h2>	
+ -->
+
+<div class="demo">
+
+	<form ng-model="saved">
+    <ul class= "mywandrlst" id="droppable">
+    	<p class="listTitle"><span class="cityName">{{city.name}}</span> </br>wandrlst</p>
+    	<p class="fieldNoteSub">48-Page Memo Book</p>
+    	<p class="fieldNoteSub">Durable Materials / Made in the U.S.A.</p>
+    	
+    </ul>
+    </form>
+</div>
+
+</div>
+
+<div id="inputs dropdown">
+<form id="selectList" >
+<select name="Choose a List">
+  <option>Choose a List</option>
+  <option value= "tips"id="tips">General Tips for the City</option>
+  <option value= "bars"id="bars">Best Bars</option>
+  <option value= "date"id="date">Best Date Spots</option>
+  <option value= "brunch"id="brunch">Best Places for Brunch</option>
+  </select>
+  <a href="" ng-click="chooseList()">Choose</a>
+ </form>
+
+
+<form class="addForms" id="tipsF" ng-submit="addTip(tip, city.name)" ng-show="tipsShow" >
+	<h2>Inside Tips for the City</h2>
+		<input type="text" placeholder="add" ng-model="tip.name"></input>
+		<input type="text" ng-model="tip.neighborhood" placeholder="neighborhood"></input>
+	<button>Add</button>
+</form>
+
+<form class="addForms" id="barsF" ng-submit="addList(list, city.name)" ng-show="listShow">
+	<h2>Best Bars</h2>
+		<input type="text" placeholder="add a bar" ng-model="list.name" ng-model="save.bar"></input>
+		<input type="text" placeholder="any specialties?" ng-model="list.special" ng-model="save.special"></input>
+		<input type="text" ng-model="list.neighborhood" ng-model="save.neighborhood" placeholder="type of neighborhood"></input>
+	<button>Add</button>
+</form>
+
+<form class="addForms" id='dateF' ng-submit="addDate(date, city.name)" ng-show="dateShow">
+	<h2>Date Night</h2>
+		<input type="text" placeholder="add a spot" ng-model="date.name"></input>
+		<input type="text" placeholder="any recomendations?" ng-model="date.recommend"></input>
+		<input type="text" ng-model="date.neighborhood" placeholder="type of neighborhood"></input>
+	<button>Add</button>
+</form>
+
+<form class="addForms" id="brunchF" ng-submit="addBrunch(brunch, city.name)" ng-show="brunchShow">
+	<h2>Best Places for Brunch</h2>
+		<input type="text" placeholder="add a spot" ng-model="brunch.name"></input>
+		<input type="text" placeholder="any specialties?" ng-model="brunch.specialties"></input>
+		<input type="text" ng-model="brunch.neighborhood" placeholder="type of neighborhood"></input>
+	<button>Add</button>
+</form>
+
+
+</div> <!-- end input div -->
+
+<div id= "results"> 
+<div class="lists allResults">
+	<h4>Best Bars</h4>
+	<ul class="droptrue">
+	<li id="{{list.objectId}}" class="list" ng-repeat="list in lists">
+		{{list.name}} | {{list.special}} 
+	</li>
+	</ul>
+</div>
+
+<div class="tips allResults">
+	<h4>Tips</h4>
+	<ul class="droptrue">
+	<li id="{{tip.objectId}}" class="list" ng-repeat="tip in tips">
+		{{tip.name}}
+	</li>
+	</ul>
+</div>
+
+<div class="date allResults">
+	<h4>Date Spots</h4>
+	<ul class="droptrue">
+	<li id="{{date.objectId}}" class="list" ng-repeat="date in dates">
+		{{date.name}}
+	</li>
+	</ul>
+</div>
+
+<div class="brunch allResults">
+	<h4>Brunch Spots</h4>
+	<ul class="droptrue">
+	<li id="{{brunch.objectId}}" class="list" ng-repeat="brunch in brunchs">
+		{{brunch.name}}
+	</li>
+	</ul>
+</div>
+</div> <!-- end results div -->
