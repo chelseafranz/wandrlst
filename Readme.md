@@ -4,7 +4,7 @@
 This travel app is designed to let you explore new places based on recommedations from locals. 
 
 Tech used:
-HTML5/CSS
+HTML5/CSS</br>
 Sass
 JQuery
 JQueryUI
