@@ -1,5 +1,5 @@
-##Wandrlst:
-#Get lost, go local.
+#Wandrlst:
+###Get lost, go local.
 
 This travel app is designed to let you explore new places based on recommedations from locals. 
 
@@ -12,3 +12,11 @@ Underscore
 Angular
 MapBox API
 Parse
+Animate.css
+
+To use: 
+clone repo
+install npm
+install bower
+
+
