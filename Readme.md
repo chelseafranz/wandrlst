@@ -4,19 +4,19 @@
 This travel app is designed to let you explore new places based on recommedations from locals. 
 
 Tech used:
-HTML5/CSS</br>
-Sass
-JQuery
-JQueryUI
-Underscore
-Angular
-MapBox API
-Parse
+HTML5/CSS |
+Sass |
+JQuery |
+JQueryUI |
+Underscore |
+Angular |
+MapBox API |
+Parse |
 Animate.css
 
 To use: 
-clone repo
-install npm
-install bower
+1.clone repo
+2. install npm
+3. install bower
 
 
