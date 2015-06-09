@@ -465,11 +465,11 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
 
 var userUrl = ' https://api.parse.com/1/users/';
 var savedUrl = ' https://api.parse.com/1/classes/saved';
-	
+
 	$scope.user = UserFactory.currentUser();
 	currentUser=UserFactory.currentUser();
 	userID= $scope.user.objectId;
-	
+
 
 		$scope.tipsShow= false;
 		$scope.listShow= false;
@@ -482,7 +482,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 //       minHeight: 150,
 //       minWidth: 200
 //     });
-	
+
 	$( ".lists" ).draggable({ addClasses: true});
 	$( ".tips" ).draggable({ addClasses: true });
 	$( ".date" ).draggable({ addClasses: true});
@@ -498,8 +498,6 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 	$( ".mywandrlst" ).on( "drop", function( drop, li ) {
 		saved.push(li.draggable[0].id);
 		console.log(li.draggable);
-		//saved.push(li.draggable[0].id);
-		//saved.push(li.draggable[0].innerText);
 		saved.city= country[0].city;
 		console.log(country[0].city);
 		saved.title= li.draggable[0].innerText;
@@ -507,7 +505,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 		MainFactory.saveList(saved);
 
 	});
-	
+
 
 	var country;
 
@@ -517,7 +515,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 	        // console.log(data);
 	        country=data;
 	        console.log(country);
-	        
+
 	        MainFactory.tipsByCity(data.name).success(function(data){
 	        	$scope.tips=data.results;
 	        	country=data.results;
@@ -533,7 +531,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 	        });
 
 	        });
-	
+
 
 		$scope.addList= function(newList, c){
 			console.log(c);
@@ -547,7 +545,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 			console.log(c);
 			newTip.city= c;
 			MainFactory.addTip(newTip);
-			 
+
 		};
 
 		$scope.addDate=function(newDate, c){
@@ -557,9 +555,9 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 
 		$scope.addBrunch=function(newBrunch, c){
 			newBrunch.city=c;
-			MainFactory.addBrunch(newBrunch)	
+			MainFactory.addBrunch(newBrunch)
 		};
-		
+
 
 		$scope.chooseList= function(){
 			var choose= $('select').val();
@@ -577,7 +575,7 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 				case 'brunch':
 				$scope.brunchShow= true;
 				break;
-				
+
 			}
 		};
 
@@ -633,12 +631,11 @@ var savedUrl = ' https://api.parse.com/1/classes/saved';
 
       $( ".mywandrlst" ).on( "drop", function( drop, ui ) {} );
 
-	
-		
+
+
 
 	}]); //end controller
 }());
-
 
 (function  (argument) {
 	angular.module('WanderMod').controller( 'SearchController',['$scope', 'FIREBASE_URL', 'uiGmapGoogleMapApi', '$firebase', '$location',function($scope, FIREBASE_URL, uiGmapGoogleMapApi, $firebase, $location ){
