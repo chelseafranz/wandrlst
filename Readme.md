@@ -1,3 +1,22 @@
-## Yo, I'm a Readme
+#Wandrlst:
+###Get lost, go local.
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This travel app is designed to let you explore new places based on recommedations from locals. 
+
+Tech used:
+HTML5/CSS |
+Sass |
+JQuery |
+JQueryUI |
+Underscore |
+Angular |
+MapBox API |
+Parse |
+Animate.css
+
+To use: 
+1.clone repo
+2. install npm
+3. install bower
+
+
