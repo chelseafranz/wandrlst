@@ -16,7 +16,8 @@ Animate.css
 
 To use: 
 1.clone repo
-2. install npm
-3. install bower
+2. install bower
+3. install npm
+4. install gulp
 
 
