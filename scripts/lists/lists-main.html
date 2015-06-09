@@ -1,7 +1,7 @@
 <!-- <div class="topBar">
       <h1 id="title">{{city.name}}</h1>
         </div>
-      <h2 id="subtitle">Get lost. Go local.</h2>	
+      <h2 id="subtitle">Get lost. Go local.</h2>
  -->
 
 <div class="demo">
@@ -11,7 +11,7 @@
     	<p class="listTitle"><span class="cityName">{{city.name}}</span> </br>wandrlst</p>
     	<p class="fieldNoteSub">48-Page Memo Book</p>
     	<p class="fieldNoteSub">Durable Materials / Made in the U.S.A.</p>
-    	
+
     </ul>
     </form>
 </div>
@@ -20,14 +20,14 @@
 
 <div id="inputs dropdown">
 <form id="selectList" >
-<select name="Choose a List">
+<select name="Choose a List" style="background-color: black;color: white;">
   <option>Choose a List</option>
   <option value= "tips"id="tips">General Tips for the City</option>
   <option value= "bars"id="bars">Best Bars</option>
   <option value= "date"id="date">Best Date Spots</option>
   <option value= "brunch"id="brunch">Best Places for Brunch</option>
   </select>
-  <a href="" ng-click="chooseList()">Choose</a>
+  <a href="" class="choose" ng-click="chooseList()" ><span class="entypo-check"></span></a>
  </form>
 
 
@@ -65,12 +65,12 @@
 
 </div> <!-- end input div -->
 
-<div id= "results"> 
+<div id= "results">
 <div class="lists allResults">
 	<h4>Best Bars</h4>
 	<ul class="droptrue">
 	<li id="{{list.objectId}}" class="list" ng-repeat="list in lists">
-		{{list.name}} | {{list.special}} 
+		{{list.name}} | {{list.special}}
 	</li>
 	</ul>
 </div>
